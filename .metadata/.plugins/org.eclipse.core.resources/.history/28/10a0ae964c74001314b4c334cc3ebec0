@@ -33,30 +33,7 @@ public class Reverse_array {
 		}
 
 	
-	public ListNode reverseBetween(ListNode head, int m, int n) {  
-        // Start typing your Java solution below  
-        // DO NOT write main() function  
-        ListNode p = new ListNode(Integer.MIN_VALUE);  
-        p.next = head;  
-        int index = 1;  
-        while(index < m){  
-            p = p.next;  
-            index++;  
-        }  
-        ListNode c = p.next;  
-        ListNode ne = c.next;  
-        ListNode mark = c;  
-        while(index < n){  
-            p.next = ne;  
-            ne = ne.next;  
-            p.next.next = c;  
-            c = p.next;  
-            index++;  
-        }  
-        mark.next = ne;  
-        if(p.val == Integer.MIN_VALUE) return p.next;  
-        else return head;  
-    }  
+	
 	
 	
 	public static ListNode reverseList(ListNode head){
