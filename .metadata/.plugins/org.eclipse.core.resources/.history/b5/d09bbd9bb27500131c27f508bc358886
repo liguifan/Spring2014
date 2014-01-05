@@ -1,6 +1,5 @@
 package string_manipulation;
 import java.lang.*;
-import java.util.HashSet;
 import java.util.Stack;
 
 
@@ -18,7 +17,7 @@ public class simplify_path {
 		//String non=str1.replaceAll("[.]", "");
 		System.out.println(str1);
 		
-		System.out.println("test+"+anagram_twoword("ate","taa"));
+		System.out.println(reverseString("a"));
 	}
 	
 	
@@ -117,21 +116,6 @@ In this case, you should ignore redundant slashes and return "/home/foo".
 	
 	
 	public static boolean anagram_twoword(String a, String b){
-		HashSet<Character> seta = new HashSet<Character>();
-		if(a.length()!=b.length()) return false;
 		
-		for(int i=0;i<a.length();i++){
-			seta.add(a.charAt(i));
-		}
-		
-		
-		for(int i=0;i<a.length();i++){
-				if(seta.add(b.charAt(i))){
-					return false;
-				}
-				seta.remove(b.charAt(i));// when a character is compared, remove it.
-			}
-
-		return true;
 	}
 }

@@ -18,7 +18,7 @@ public class simplify_path {
 		//String non=str1.replaceAll("[.]", "");
 		System.out.println(str1);
 		
-		System.out.println("test+"+anagram_twoword("ate","taa"));
+		System.out.println("test+"+anagram_twoword("abc","cba"));
 	}
 	
 	
@@ -129,7 +129,6 @@ In this case, you should ignore redundant slashes and return "/home/foo".
 				if(seta.add(b.charAt(i))){
 					return false;
 				}
-				seta.remove(b.charAt(i));// when a character is compared, remove it.
 			}
 
 		return true;

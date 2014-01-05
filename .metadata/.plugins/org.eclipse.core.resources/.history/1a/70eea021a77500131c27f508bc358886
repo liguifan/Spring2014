@@ -1,6 +1,5 @@
 package string_manipulation;
 import java.lang.*;
-import java.util.HashSet;
 import java.util.Stack;
 
 
@@ -9,7 +8,7 @@ public class simplify_path {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//String str="/../ptervsMY/../XHZ/PmReT///././om/.///NID/./nb/../////../OzVU/..///////..///.///Fbz/.///JkBLsBPOtaZfJxBsr/////./PlKqDZibpe///BojpVLSKRxwoNTye/DouOLUweLjfjmSVnNB/gkVRoZplAXmDApDcfz/../../TGuyzi/LxiuqfGMIVgSqwjjKn///nrUL/./UXubqdyqDdjYpPjxcK/../skBTmgzFvPvRRUVJZaj/.///./dXMwqDITFGedfD///./../SJsnjqaejDumfKMgfIwa/./AkIkoLqSFqCluW/YFroCAYXGPBhYeIMWl/ie/FMGzVASoRbbFRj/cI/zbVOaYMkHjNj/LO/cHvxnYfEaWabThaWbu/./../lCzgrdFsIcrgTsTNG///qRHYGgDkc/ZNQXkAPmygMEp/./iD/YjpUiwMrRUI///SSeyNJTkkVUNQaEmeO/./YVhKivJXOMBiaF/tnyodagYEHDRZaHXFF/mKZLDarbdM/../FgaTiMQHaULpidm/../Rs/.././mSovxOdRAsqApStB/././QgTXzkoJ/../BR/jyUfTCJx/MkXYqXcXFUo///../EdLxgz/./GNrHjtXIwSvKGKr/./KdPo/QlpxuwxRk///Z/KX/JKPkjMrhZ/./////.././//////zXDkQvxQHRj/kcVCaMpRRTbrpjqJ///zMPHxrk/././H///LxRIytui///QsPZecj/////../WKyepNvAXv/JKSJoymertVFOQZgy/eyChfvJciPRaqc/kQDMydOjqDCUeiMF/../PSWbWSmPbNjRxMePqP///qLGDZwcNVSnWz/HvXN///WSWg/esoKtXeevuWTrQFEBlX/./zisxX/../EsUvBkbmtXZgRPeBdqA/DFGWEcQUtgsGlMyB/RduYIuxsCHyCnaDywQRq/TDZCpShqrw/.///tmiRNSCoygMYBcY/fKdCfOzMLZnjOcaOJula/.././wW/./JBMLkAuH/Wxi/uVovvcTKWRviPqjhnm/uJk/../glZFVEVPG/SdwxUNmDirhnl/AqJfZ///../sgWRJUqyJG/./nKtZIW/DhopPsvKicLISLoJjYZ/JBnNVrEzRA/./XK/.///KyKqy/.././//kkdrwuvBdXJPBQW/ULhGXIghUqXk/";
-		String str="home/liguifan/./../...";
+		String str="home/liguifan/./../";
 		String[] s=str.split("/");
 		for(String s1:s )
 			System.out.println(s1);
@@ -17,8 +16,6 @@ public class simplify_path {
 		String str1=simplifyPath2(str);
 		//String non=str1.replaceAll("[.]", "");
 		System.out.println(str1);
-		
-		System.out.println("test+"+anagram_twoword("ate","taa"));
 	}
 	
 	
@@ -80,7 +77,7 @@ In this case, you should ignore redundant slashes and return "/home/foo".
 		 if (path == null || path.length() == 0) return "/";
 
 		    Stack<String> stack = new Stack<String>();
-		    String[] splits = path.split("/");
+		    String[] splits = path.trim().split("/");
 		    for (String s : splits) {
 		        if (s == null || s.length() == 0 || s.equals(".")) {
 		            // Do nothing;
@@ -98,40 +95,9 @@ In this case, you should ignore redundant slashes and return "/home/foo".
 
 		    StringBuffer buf = new StringBuffer();
 		    while (!stack.isEmpty()) {
-		        buf.insert(0, stack.pop());// This is to insert the string at the position rather than
+		        buf.insert(0, stack.pop());
 		        buf.insert(0, "/");
     }
 		    return buf.toString();
-	}
-	
-	
-	public static String reverseString(String word){
-		StringBuffer sb=new StringBuffer();
-		
-		for(int i=0;i<word.length();i++)
-		{
-			sb.insert(0,word.charAt(i));
-		}
-		return sb.toString();
-	}
-	
-	
-	public static boolean anagram_twoword(String a, String b){
-		HashSet<Character> seta = new HashSet<Character>();
-		if(a.length()!=b.length()) return false;
-		
-		for(int i=0;i<a.length();i++){
-			seta.add(a.charAt(i));
-		}
-		
-		
-		for(int i=0;i<a.length();i++){
-				if(seta.add(b.charAt(i))){
-					return false;
-				}
-				seta.remove(b.charAt(i));// when a character is compared, remove it.
-			}
-
-		return true;
 	}
 }
