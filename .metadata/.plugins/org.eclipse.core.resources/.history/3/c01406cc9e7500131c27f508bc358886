@@ -1,0 +1,27 @@
+package string_manipulation;
+import java.lang.*;
+
+
+public class simplify_path {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String str="liguifan";
+		str=str.substring(0,str.length()-1);
+		System.out.println(str);
+	}
+	
+	
+	public static String simplifyPath(String path) {
+		int[] counter=new int[path.length()];
+		int counter=0;
+		for(int i=0; i<path.length()-1;i++){
+			if(path.charAt(i)=='/')
+				counter++;
+			
+		}
+		if(path.charAt(path.length()-1)=='/')
+			counter++;
+		
+		
+}
