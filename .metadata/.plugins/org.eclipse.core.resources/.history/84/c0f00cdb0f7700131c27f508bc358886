@@ -1,0 +1,17 @@
+package linked_list;
+
+import datastructure.ListNode;
+
+public class merge_sort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	public static ListNode merge(ListNode a, ListNode b){
+		if(a==null && b==null){
+				return null;
+		}
+	}
+}

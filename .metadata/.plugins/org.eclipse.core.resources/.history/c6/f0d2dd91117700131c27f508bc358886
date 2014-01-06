@@ -1,0 +1,15 @@
+package linked_list_creation_SAMPLE;
+
+public class sample {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// Two different length linked list l1 and l2;
+		
+		
+		
+		
+		// TODO Their printing function;
+	}
+
+}
