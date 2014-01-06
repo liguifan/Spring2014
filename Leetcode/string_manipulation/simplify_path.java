@@ -1,6 +1,7 @@
 package string_manipulation;
 import java.lang.*;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Stack;
 
 
@@ -19,6 +20,20 @@ public class simplify_path {
 		System.out.println(str1);
 		
 		System.out.println("test+"+anagram_twoword("ate","taa"));
+		
+		HashSet<Character> set=new HashSet<Character>();
+		Iterator<Character> it=set.iterator();
+		set.add('a');
+		set.add('b');
+		set.add('c');
+		System.out.println(set);
+		//System.out.println(it.next());
+		set.remove('a');
+		System.out.println(set);
+		//System.out.println(it.next());
+		set.remove('b');
+		
+		
 	}
 	
 	
