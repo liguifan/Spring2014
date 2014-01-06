@@ -1,0 +1,43 @@
+package evaluate_reverse_polish_notation;
+
+import java.util.Stack;
+
+public class evaluate_reverse_polish_notation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Stack<String> stack=new Stack<String>();
+		stack.push("2");
+		stack.push("3");
+		int a = Integer.parseInt(stack.pop());
+		int b = Integer.parseInt(stack.pop());
+		System.out.println(a+b);
+	}
+	
+	public int evalRPN(String[] tokens) {
+        Stack<Integer> stack=new Stack<Integer>();
+        for(String s:tokens){
+            if(s!="+"||s!="-"||s!="*"||s!="/"){
+                stack.push(Integer.parseInt(s));
+            }
+            else{
+                
+                if(s.equals("+")){
+                int temp=stack.pop()+stack.pop();
+                }
+                else if(s.equals("-")){
+                int temp=Integer.parseInt(stack.pop())-Integer.parseInt(stack.pop());
+                }
+                else if(s.equals("*")){
+                int temp=Integer.parseInt(stack.pop())*Integer.parseInt(stack.pop());
+                }
+                else if(s.equals("/")){
+                int de=Integer.parseInt(stack.pop());
+                int num=Integer.parseInt(stack.pop());
+                int temp=num/de;
+                
+                }
+            }
+        }
+    }
+}
