@@ -9,11 +9,9 @@ public class sample {
 		// Two different length linked list l1 and l2;
 		ListNode l1=new ListNode(Integer.MIN_VALUE);
 		ListNode l2=new ListNode(Integer.MIN_VALUE);
-		ListNode l3=new ListNode(Integer.MIN_VALUE);
-		
 		ListNode l1_start=l1;
 		ListNode l2_start=l2;
-		ListNode l3_start=l3;
+		
 		// l1={ 1,3,5,7,9} l2={2,4,6,8,10,15,17}
 		l1.next=new ListNode(1);
 		l1=l1.next;
@@ -44,22 +42,7 @@ public class sample {
 		l2=l2_start;
 		
 		// 4,2,5,1,8,6,0 for sorting
-		
-		l3.next=new ListNode(4);
-		l3=l3.next;
-		l3.next=new ListNode(2);
-		l3=l3.next;
-		l3.next=new ListNode(5);
-		l3=l3.next;
-		l3.next=new ListNode(1);
-		l3=l3.next;
-		l3.next=new ListNode(8);
-		l3=l3.next;
-		l3.next=new ListNode(6);
-		l3=l3.next;
-		l3.next=new ListNode(0);
-		l3=l3.next;
-		l3=l3_start;
+		ListNode l3=new ListNode(4);
 		// TODO Their printing function;
 	}
 

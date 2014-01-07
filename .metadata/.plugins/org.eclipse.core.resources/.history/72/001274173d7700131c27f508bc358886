@@ -59,7 +59,7 @@ public class sample {
 		l3=l3.next;
 		l3.next=new ListNode(0);
 		l3=l3.next;
-		l3=l3_start;
+		
 		// TODO Their printing function;
 	}
 

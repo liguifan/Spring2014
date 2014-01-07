@@ -75,7 +75,7 @@ public class merge_sort {
 		l3=l3_start;
 		
 		ListNode result2=MergeSort(l3.next);
-		while(result2!=null){
+		while(l3!=null){
 			System.out.println("sorting "+result2.val);
 			result2=result2.next;
 		}
@@ -83,10 +83,6 @@ public class merge_sort {
 	}
 	
 	public static ListNode MergeSort(ListNode head){
-		if((head==null)||(head.next==null)){
-            return head;
-        }
-		
 		ListNode start=new ListNode(Integer.MIN_VALUE);
 		start.next=head;
 		ListNode slow=head;
@@ -98,8 +94,8 @@ public class merge_sort {
 			if(fast!=null){
 				fast=fast.next;
 			}
-		}*/
-		
+		}
+		*/
 		while(fast!=null && fast.next!=null){
 			slow=slow.next;	
 			fast=(fast.next).next;
@@ -115,7 +111,7 @@ public class merge_sort {
 	}
 
 	public static ListNode merge(ListNode a, ListNode b){
-		
+		System.out.println(a.val+"b "+b.val);
 		ListNode list=new ListNode(Integer.MIN_VALUE);
 		ListNode head=list;
 		

@@ -10,10 +10,9 @@ public class sample {
 		ListNode l1=new ListNode(Integer.MIN_VALUE);
 		ListNode l2=new ListNode(Integer.MIN_VALUE);
 		ListNode l3=new ListNode(Integer.MIN_VALUE);
-		
 		ListNode l1_start=l1;
 		ListNode l2_start=l2;
-		ListNode l3_start=l3;
+		
 		// l1={ 1,3,5,7,9} l2={2,4,6,8,10,15,17}
 		l1.next=new ListNode(1);
 		l1=l1.next;
@@ -59,7 +58,7 @@ public class sample {
 		l3=l3.next;
 		l3.next=new ListNode(0);
 		l3=l3.next;
-		l3=l3_start;
+		
 		// TODO Their printing function;
 	}
 

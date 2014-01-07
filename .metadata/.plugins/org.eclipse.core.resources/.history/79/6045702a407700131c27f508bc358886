@@ -99,11 +99,11 @@ public class merge_sort {
 				fast=fast.next;
 			}
 		}*/
-		
+		/*
 		while(fast!=null && fast.next!=null){
 			slow=slow.next;	
 			fast=(fast.next).next;
-		}
+		}*/
 		ListNode right=slow.next;
 		slow.next=null;
 		ListNode left=head;
