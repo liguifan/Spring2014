@@ -72,6 +72,8 @@ public class merge_sort {
 		l3=l3.next;
 		l3.next=new ListNode(0);
 		l3=l3.next;
+		l3.next=new ListNode(-2);
+		l3=l3.next;
 		l3=l3_start;
 		
 		ListNode result2=MergeSort(l3.next);
@@ -91,19 +93,19 @@ public class merge_sort {
 		start.next=head;
 		ListNode slow=head;
 		ListNode fast=head.next;
-		/*
-		while(fast!=null){
+		
+		while(fast.next!=null){
 			slow=slow.next;	
 			fast=fast.next;
-			if(fast!=null){
+			if(fast.next!=null){
 				fast=fast.next;
 			}
-		}*/
-		
+		}
+		/*
 		while(fast!=null && fast.next!=null){
 			slow=slow.next;	
 			fast=(fast.next).next;
-		}
+		}*/
 		ListNode right=slow.next;
 		slow.next=null;
 		ListNode left=head;

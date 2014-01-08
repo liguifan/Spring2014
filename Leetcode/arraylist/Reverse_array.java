@@ -7,7 +7,31 @@ import datastructure.ListNode;
 
 public class Reverse_array {
 	public static void main(String[] args) {
-		ListNode list=new ListNode(0);
+		
+		ListNode l2=new ListNode(Integer.MIN_VALUE);
+		ListNode l2_start=l2;
+		
+		l2.next=new ListNode(2);
+		l2=l2.next;
+		l2.next=new ListNode(4);
+		l2=l2.next;
+		l2.next=new ListNode(6);
+		l2=l2.next;
+		l2.next=new ListNode(8);
+		l2=l2.next;
+		l2.next=new ListNode(10);
+		l2=l2.next;
+		l2.next=new ListNode(15);
+		l2=l2.next;
+		l2.next=new ListNode(17);
+		l2=l2_start;
+		
+		ListNode result=reverseBetween_practice(l2.next,1,5);
+		while(result!=null){
+			System.out.println("reverse "+result.val);
+			result=result.next;
+		}
+		/*ListNode list=new ListNode(0);
 		ListNode list_p=list;
 		for(int i=1;i<6;i++){
 			list.next=new ListNode(i);
@@ -29,9 +53,50 @@ public class Reverse_array {
 		while(result!=null){
 			System.out.println("reverse "+result.val);
 			result=result.next;
+		}*/
 		}
+	public static ListNode reverseBetween_practice(ListNode head, int m, int n) {
+		
+		ListNode p=new ListNode(Integer.MIN_VALUE);
+		p.next=head;
+		int i=0;
+		while(i<m-1){ // this does not include m
+			p=p.next;
+			i++;
 		}
-
+		
+		ListNode a=p.next;
+		ListNode b=a.next;
+		
+		ListNode mark=p.next;
+		i=0;
+		while(i<(n-m)){ // this include n-m
+			p.next=b.next;
+			b.next=a;
+			a=b;
+			b=p.next;
+			i++;
+		}
+		mark.next=p.next;
+		p.next=a;
+		
+		//This two lines are very critical! Also it is the foundation of boundary case'
+		if(p.val == Integer.MIN_VALUE) return p.next;  
+		else return head;  
+		
+		//return head;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
 	
 	public ListNode reverseBetween(ListNode head, int m, int n) {  
         // Start typing your Java solution below  
