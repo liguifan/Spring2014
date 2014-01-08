@@ -38,9 +38,6 @@ public class reorder_list {
         tra.next=head;
         head=tra;
         tra=tra.next;
-        ListNode tra2=tra;
-        
-        
         while(tra!=null){
         	System.out.println("dddd "+tra.val);
             size++;

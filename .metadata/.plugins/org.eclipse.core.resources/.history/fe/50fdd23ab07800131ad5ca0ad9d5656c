@@ -1,0 +1,40 @@
+package linked_list;
+
+import datastructure.ListNode;
+
+public class reversion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static ListNode reversion(ListNode head){
+		ListNode p=new ListNode(Integer.MIN_VALUE);
+		p.next=head;
+		ListNode a=p.next;
+		ListNode b=a.next;
+		p.next=b.next;
+		b.next=a;
+		a.next=null;	
+		
+		while(p.next!=null){
+			a=b;
+			b=p.next;
+			if(b.next==null)
+				break;
+			p.next=b.next;	
+			b.next=a;
+			
+			
+		}
+			
+		return p.next;
+		
+		
+		
+		
+		
+	}
+
+}
