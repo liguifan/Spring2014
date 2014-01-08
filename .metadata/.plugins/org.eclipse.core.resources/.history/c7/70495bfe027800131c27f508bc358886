@@ -1,0 +1,25 @@
+package linked_list;
+
+import datastructure.ListNode;
+
+public class chapter25 {
+	public static void main(String[] args) {
+		
+		
+	}
+	
+	public static int linktoint(ListNode head){
+		int sum=0;
+		ListNode p=new ListNode(Integer.MIN_VALUE);
+		while(p!=null){
+			sum=p.val+10*sum;
+			p=p.next;
+		}
+		
+		return sum;
+		
+		
+		
+	}
+	
+}

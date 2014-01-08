@@ -1,0 +1,33 @@
+package array_and_strings;
+
+public class question14 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String input="Mr John Smith      ";
+		// String to char[] 
+		char[] input2=input.toCharArray();
+		System.out.println(add20(input2));
+		
+	}
+	
+	public static char[] add20(char[] input,int n){
+		char[] result=new char[n];
+		for(int i=0;i<input.length-2;i++){
+			
+			if(input[i]==' '){
+				for(int j=i+1;j<input.length-2;j++){
+					input[j+2]=input[j];
+					System.out.println("cut"+j);
+				}
+				input[i]='%';
+				input[i+1]='2';
+				input[i+2]='0';
+				
+			}
+			
+		}
+		return input;
+	}
+
+}
