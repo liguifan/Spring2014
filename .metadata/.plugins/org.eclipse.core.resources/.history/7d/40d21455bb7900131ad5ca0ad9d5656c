@@ -1,0 +1,24 @@
+package path_recursion;
+
+public class unique_binary_search_trees {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public int numTrees(int n){
+		if(n<=1)
+			return 1;
+		int sum=1;
+		for(int i=0;i<n;i++){
+			sum+=numTrees(n-i-1)*sum(i);
+		}
+		
+		
+		
+		
+		
+	}
+
+}

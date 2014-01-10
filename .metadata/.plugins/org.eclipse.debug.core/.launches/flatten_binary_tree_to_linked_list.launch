@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Leetcode/path_recursion/flatten_binary_tree_to_linked_list.java"/>
+<listEntry value="/Leetcode/binary_tree/flatten_binary_tree_to_linked_list.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="path_recursion.flatten_binary_tree_to_linked_list"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="binary_tree.flatten_binary_tree_to_linked_list"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Leetcode"/>
 </launchConfiguration>
