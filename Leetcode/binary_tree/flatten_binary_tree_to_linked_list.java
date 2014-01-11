@@ -8,15 +8,19 @@ public class flatten_binary_tree_to_linked_list {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		TreeNode root=new TreeNode(5);
+		
 		root.left=new TreeNode(6);
 		root.left.left=new TreeNode(19);
-		root.right=new TreeNode(7);
+		root.left.right=new TreeNode(3);
+		root.right=new TreeNode(2);
 		
-		ListNode list=flatten(root);
-		while(list!=null){
-		System.out.println(list.val);
-		list=list.next;
+		TreeNode result=flatten2(root);
+	
+		while(result!=null){
+			System.out.println("test "+result.val);
+			result=result.right;
 		}
+		
 		
 	}
 	public static ListNode flatten(TreeNode root){
@@ -45,5 +49,36 @@ public class flatten_binary_tree_to_linked_list {
 		return head;
 	
   }
+	
+	public static TreeNode flatten2(TreeNode root){
+//		if(root.left==null && root.right==null)
+//		return new TreeNode(root.val);
+if(root==null)
+	return null;
+
+
+TreeNode left=flatten2(root.left);
+TreeNode right=flatten2(root.right);
+
+
+// let see how the good example deal with this case.
+TreeNode p=new TreeNode(Integer.MIN_VALUE);
+p.right=left;
+
+while(p.right!=null){
+	p=p.right;
 }
+p.right=right;
+
+if(left==null){
+	root.right=right;
+}else
+{
+	root.right=left;
+}
+root.left=null;
+return root;
+		}
+	}
+
 
