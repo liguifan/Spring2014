@@ -14,7 +14,7 @@ public class flatten_binary_tree_to_linked_list {
 		root.left.right=new TreeNode(3);
 		root.right=new TreeNode(2);
 
-		TreeNode result=flatten3(root);
+		TreeNode result=flatten2(root);
 
 		while(result!=null){
 			System.out.println("test "+result.val);
@@ -49,7 +49,7 @@ public class flatten_binary_tree_to_linked_list {
 		return head;
 
 	}
-//using test null leave method.
+
 	public static TreeNode flatten2(TreeNode root){
 		//		if(root.left==null && root.right==null)
 		//		return new TreeNode(root.val);
@@ -75,7 +75,7 @@ public class flatten_binary_tree_to_linked_list {
 		root.left=null;
 		return root;
 	}
-// using test leave method.
+	
 	public static TreeNode flatten3(TreeNode root){
 		if(root.left==null && root.right==null)
 					return new TreeNode(root.val);
@@ -84,10 +84,9 @@ public class flatten_binary_tree_to_linked_list {
 		TreeNode right=null;
 		if(root.left!=null){
 			left=flatten3(root.left);
-			System.out.println("imporv");
 		}
 		if(root.right!=null){
-			right=flatten3(root.right);
+			left=flatten3(root.right);
 		}
 		TreeNode p=new TreeNode(Integer.MIN_VALUE);
 		p.right=left;
@@ -97,14 +96,12 @@ public class flatten_binary_tree_to_linked_list {
 		}
 		p.right=right;
 		
-
-		if(left==null){
+		TreeNode leftmost=left;
+		if(left==null)
 			root.right=flatten3(root.right);
-			System.out.println("liguifan");
-		}
-		else{
-			root.right=left;
-		}
+		else
+			leftmost.right=flatten3(root.right);
+		
 		root.left=null;
 		return root;
 	}
