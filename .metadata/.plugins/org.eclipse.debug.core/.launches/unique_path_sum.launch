@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/Leetcode/binary_tree/unique_path_sum.java"/>
+<listEntry value="/Leetcode/DP/unique_path_sum.java"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="1"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="binary_tree.unique_path_sum"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="DP.unique_path_sum"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Leetcode"/>
 </launchConfiguration>
