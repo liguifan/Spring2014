@@ -1,0 +1,14 @@
+package DP;
+
+public class zigzag {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public static int zigzag_find(int a[]){
+		
+	}
+}
