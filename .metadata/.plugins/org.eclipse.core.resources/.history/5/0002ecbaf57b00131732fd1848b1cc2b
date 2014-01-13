@@ -1,0 +1,30 @@
+package array_manipulation;
+
+public class merge_sorted_array {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public static int[] merge(int A[],int m,int[] B,int n){
+		int[] C=new int[m+n];
+		int i=0;
+		while(i<m+n){
+			if(A[i]<=B[i]){
+				C[i++]=A[i++];
+			}else
+			{
+				C[i++]=B[i++];
+			}
+		}
+		
+		
+		
+		
+		
+		return C;
+	}
+
+}
