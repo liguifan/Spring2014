@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;gas_station.java&apos; to &apos;Leetcode/others&apos;&#x0A;- Original project: &apos;Leetcode&apos;&#x0A;- Destination element: &apos;Leetcode/others&apos;&#x0A;- Original element: &apos;DP.gas_station.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/&lt;others" element1="/&lt;DP{gas_station.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1389575293854" units="1" version="1.0"/>
+</session>

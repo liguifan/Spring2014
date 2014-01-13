@@ -1,0 +1,29 @@
+package others;
+
+public class removeDuplicates {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			int[] a={1,2,2,3,4};
+			for(int x:a){
+			System.out.println(a);
+			}
+	}
+	
+	
+	public static void removeDuplicates(int[] A){
+		int prev;
+		int curr;
+		for(int i=0;i<A.length-1;i++){
+			prev=A[i];
+			curr=A[i+1];
+			if(prev==curr){
+				for(int j=i+1;j<A.length-1;j++){
+					A[j]=A[j+1];
+				}
+			}
+		}
+		
+	}
+
+}
