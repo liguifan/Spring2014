@@ -4,7 +4,7 @@ public class removeDuplicates2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			int[] a={1,1,};
+			int[] a={1,1,2,2,2,5,5};
 			int result=remove_dup(a);
 			System.out.println(result);
 	}
@@ -19,6 +19,7 @@ public class removeDuplicates2 {
 				m++;
 				a[m]=a[s];
 			}
+			
 			while(s<=a.length-1 ){
 				if(a[s]==a[m]){
 					s++;
@@ -31,10 +32,12 @@ public class removeDuplicates2 {
 			m++;
 			s++;
 			count=0;
-			}			
+			}
+			
 		}
+		
 		return m+1;
-}
+		}
 	public static int removeDuplicates(int A[], int n) {
         // Note: The Solution object is instantiated only once and is reused by each test case.
         if(n <= 2)
