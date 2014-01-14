@@ -16,7 +16,7 @@ public class search_a_2D_matrix {
 			}
 		}
 		
-		boolean result=search_matrix(matrix, 22);
+		boolean result=binary_search(arr, 8, 0, arr.length-1);
 		
 		System.out.println(result);
 	}
@@ -25,23 +25,23 @@ public class search_a_2D_matrix {
 	public static boolean search_matrix(int[][] matrix,int key){
 		int a=0;
 		int b=matrix.length-1;
-		while(a<=b){
+		while(a<b){
 			int mid=(a+b)/2;
 			if(key<matrix[mid][0]){
+				if(key>matrix[mid-1][0]){
+					return binary_search(matrix[mid-1],key,0, matrix[mid].length-1);
+				}
+				else
 					b=mid-1;
 			}else if(key>matrix[mid][0]){
+				if(key<matrix[mid+1][0]){
+					return binary_search(matrix[mid],key,0, matrix[mid].length-1);
+				}
+				else
 					a=mid+1;
-			}else
-					return true;
+			}
 		}
-		// when out the loop, a is the next row of the valid row(the row we wish to perform binary search)
-		
-		//?????????????
-		if(a==matrix.length  ||matrix[a][0]>key)
-			a--;
-		
-
-		return binary_search(matrix[a],key,0, matrix[a].length-1);
+		return false;
 	}
 	
 	

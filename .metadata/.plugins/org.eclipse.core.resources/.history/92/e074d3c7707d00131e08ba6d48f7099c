@@ -35,9 +35,7 @@ public class search_a_2D_matrix {
 					return true;
 		}
 		// when out the loop, a is the next row of the valid row(the row we wish to perform binary search)
-		
-		//?????????????
-		if(a==matrix.length  ||matrix[a][0]>key)
+		if(a==matrix.length-1  ||matrix[a][0]>key)
 			a--;
 		
 
