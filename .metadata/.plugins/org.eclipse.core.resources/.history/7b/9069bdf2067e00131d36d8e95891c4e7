@@ -1,0 +1,10 @@
+package linked_list;
+
+public class linked_list_cycle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

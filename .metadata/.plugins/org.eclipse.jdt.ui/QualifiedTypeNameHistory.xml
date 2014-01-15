@@ -5,10 +5,11 @@
 <fullyQualifiedTypeName name="java.util.Stack"/>
 <fullyQualifiedTypeName name="java.util.Arrays"/>
 <fullyQualifiedTypeName name="datastructure.TNode"/>
-<fullyQualifiedTypeName name="datastructure.ListNode"/>
 <fullyQualifiedTypeName name="datastructure.TreeNode"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="datastructure.Point"/>
 <fullyQualifiedTypeName name="java.util.Hashtable"/>
+<fullyQualifiedTypeName name="datastructure.ListNode"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="datastructure.Interval"/>
 </qualifiedTypeNameHistroy>

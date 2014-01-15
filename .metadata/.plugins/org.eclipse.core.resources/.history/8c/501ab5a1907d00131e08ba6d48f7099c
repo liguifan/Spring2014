@@ -1,0 +1,17 @@
+package others;
+
+import java.util.ArrayList;
+
+public class merge_intervals {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+	
+	public static ArrayList<Interval> merge(ArrayList<Interval> intervals){
+		
+	}
+}
