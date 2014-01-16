@@ -1,0 +1,34 @@
+package recursion;
+
+import java.util.ArrayList;
+
+public class combinations {
+	static ArrayList<ArrayList<String>> set=new ArrayList<ArrayList<String>>();
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			String a="james";
+			combination(a, 2, 0);
+			for(ArrayList<String> x:set){
+				System.out.println(x);
+			}
+	}
+	
+	
+	
+	public static void combination(String str,int k,int index){
+		ArrayList<String> path=new ArrayList<String>();
+		if(k==1){
+			System.out.println(index+" "+k+Character.toString(str.charAt(index)));
+			ArrayList<String> path2=new ArrayList<String>(path);
+			path.add(Character.toString(str.charAt(index)));
+			set.add(path);
+		}
+	
+		for(int i=index; i<=str.length()-2;i++){
+			path.add(Character.toString(str.charAt(index)));
+			combination(str,k-1,i+1);
+			path.remove(path.size()-1);
+		}
+		
+	}
+}

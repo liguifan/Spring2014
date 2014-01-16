@@ -1,0 +1,18 @@
+package recursion;
+
+public class combinations {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	public static String combination(String str,int k,int index){
+		
+		
+		
+		
+	}
+}

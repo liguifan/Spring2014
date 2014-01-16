@@ -1,0 +1,25 @@
+package recursion;
+
+public class combinations {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			char a='b';
+			String c=Character.toString(a);
+			System.out.println(c);
+	}
+	
+	
+	
+	public static Strings combination(String str,int k,int index){
+		
+		if(k==1){
+			return Character.toString(str.charAt(index));
+		}
+		
+		for(int i=index; i<=str.length()-1;i++){
+			Character.toString(str.charAt(index))+combinations(str,k-1,index+1);
+		}
+		
+	}
+}

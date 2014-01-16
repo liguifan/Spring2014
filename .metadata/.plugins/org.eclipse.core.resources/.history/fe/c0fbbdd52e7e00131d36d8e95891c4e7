@@ -1,0 +1,16 @@
+package others;
+
+public class single_number {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public static int singleNumber(int[] A) {
+        // Note: The Solution object is instantiated only once and is reused by each test case.
+        
+    }
+
+}
