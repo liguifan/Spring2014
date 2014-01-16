@@ -1,0 +1,19 @@
+package array_manipulation;
+
+public class swap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		static int a=5;
+		int b=6;
+		
+		swap1();
+	}
+	
+	public static void swap1(){
+		int temp=a;
+		a=b;
+		b=temp;
+	}
+
+}

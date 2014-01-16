@@ -1,0 +1,59 @@
+package arraylist;
+
+import java.util.ArrayList;
+
+public class pascal_triangle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		ArrayList<Integer> a=new ArrayList<Integer>();
+		a.add(1);
+		a.add(2);
+		a.add(3);
+		
+		
+		
+		System.out.println(a.get(0));
+		
+	}
+	
+	public static ArrayList<ArrayList<Integer>> generate(int n) {
+		ArrayList<ArrayList<Integer>> set=new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> last= new ArrayList<Integer>();
+		if(n==0)  return set;
+		else if(n==1){
+			ArrayList<Integer> path= new ArrayList<Integer>();
+			path.add(1);
+			set.add(path);
+			return set;
+		}
+		else if(n==2)
+		{
+			ArrayList<Integer> path= new ArrayList<Integer>();
+			path.add(1);
+			path.add(1);
+			set.add(path);
+			return set;
+		}else{
+			int i=3;
+			while( i<=n){
+				ArrayList<Integer> path= new ArrayList<Integer>();
+				path.add(1);
+				for(i=0;i<=)
+				
+			}
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+        
+    }
+
+}

@@ -1,0 +1,51 @@
+package array_manipulation;
+
+public class remove_element {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		int[] a={2,2,3};
+		int[] b={1,2,2,2,4,5,6,7};
+		int result=remove_element(b, 2);
+		System.out.println(result);
+	}
+	
+	
+	public static int remove_element(int[] A,int element){
+		int back=A.length-1;
+		int mark=0;
+		if(A.length==0) return 0;
+		if(A.length==1){
+			if(A[0]==element) return 0;
+			else return 1;
+		}
+		while(back >=0 && A[back]==element){
+			back--;
+		}
+		
+		while(mark<=back){
+			if(A[mark]==element){
+				int temp=A[mark];
+				A[mark]=A[back];
+				A[back]=temp;
+				mark++;
+				back--;
+			}
+			else{
+				mark++;
+			}	
+		}
+		if(mark==element) return mark-1;
+		else	return mark;
+	}
+	
+	public static void swap(int a,int b){
+		int temp=a;
+		a=b;
+		b=temp;
+		
+	}
+
+}
