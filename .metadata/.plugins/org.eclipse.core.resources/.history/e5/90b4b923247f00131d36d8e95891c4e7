@@ -25,23 +25,25 @@ public class PerceptronAlgorithm {
 		        int sign;
 		        double lamda=0.5;
 		        int T=100;
-		        double result=0;
 		        for(int iter=0;iter<=T-1;iter++){
 		        	for(int m=0;m<=data.size()-1;m++){
 		        		for(int j=0;j<=data.get(0).size()-1;j++){
-		        			 result=(int) (data.get(m).get(j)*weightVector.get(j));
-		        		}
+		        			int result=(int) (data.get(m).get(j)*weightVector.get(j));
 		        			if(result>bias){
 		        				sign=1;
-		        			}else{
+		        			}else
 		        				sign=-1;
-		        			}
-		        		for(int k=0;k<=length-1; k++){
-		        			weightVector.set(k,weightVector.get(k)+ lamda*(test.get(m)-sign)*data.get(m).get(k));			
+		        			
+		        			weightVector.set(j,weightVector.get(j)+ lamda*(test.get(m)-sign)*data.get(m).get(j));
+		        			
+		        			
 		        		}
 		        	}
 		        }
+		        
 		        return weightVector;
+		        
+		        
 }
 	
 }
