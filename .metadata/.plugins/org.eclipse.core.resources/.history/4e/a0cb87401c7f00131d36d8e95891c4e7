@@ -31,8 +31,6 @@ public class triangle {
 		ArrayList<Integer> route =new ArrayList<Integer>();
 		int r=find_path_DP(triangle);
 		System.out.println("r is "+r);
-		
-		System.out.println(1d);
 	}
 	
 	
