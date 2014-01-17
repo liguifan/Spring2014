@@ -1,0 +1,68 @@
+package recursion;
+
+import java.util.ArrayList;
+
+public class triangle {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<ArrayList<Integer>> triangle=new ArrayList<ArrayList<Integer>>();
+		ArrayList<Integer> path1 =new ArrayList<Integer>();
+		ArrayList<Integer> path2 =new ArrayList<Integer>();
+		ArrayList<Integer> path3 =new ArrayList<Integer>();
+		ArrayList<Integer> path4 =new ArrayList<Integer>();
+		path1.add(2);
+		path2.add(3);
+		path2.add(4);
+		path3.add(6);
+		path3.add(5);
+		path3.add(7);
+		path4.add(4);
+		path4.add(1);
+		path4.add(8);
+		path4.add(3);
+		triangle.add(path1);
+		triangle.add(path2);
+		triangle.add(path3);
+		triangle.add(path4);
+		ArrayList<Integer> route =new ArrayList<Integer>();
+		int r=find_path(triangle, 0, 0, route);
+		for(int x:route){
+			System.out.println(x);
+		}
+		
+	}
+	
+	
+	
+	public static void minimumTotal(ArrayList<ArrayList<Integer>> triangle) {
+        
+    }
+	
+	
+	
+	public static void find_path(ArrayList<ArrayList<Integer>> triangle, int col,int row, ArrayList<Integer> path ){
+		System.out.println("in funciton");
+		if(row==triangle.size()-1){
+			return ;
+		}
+		int left=triangle.get(row+1).get(col);
+		int right=triangle.get(row+1).get(col+1);
+		
+	
+		if(left>right){
+			System.out.println("left "+"row "+row+"col "+col);
+			path.add(col);
+			System.out.println("left finished");
+		}else{
+			System.out.println("right "+"row "+row+"col "+col);
+			path.add(col+1);
+			System.out.println("right finished");
+		}
+		
+		find_path(triangle,col,row+1, path);
+		find_path(triangle,col+1,row+1, path);
+		
+	}
+
+}
