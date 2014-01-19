@@ -6,42 +6,56 @@ public class PerceptronAlgorithm {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+			double[] a={1.2,2,3};
+			double[] b={4,5,6};
+			
+			double r=dot_product(a, b);
+			System.out.println(r);
+			
+			
+			double[][] w={{1,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0}};
+			double[] re=average_weight(w);
+			for(double x:re){
+			System.out.println(x);
+			}
+	
 	}
 	
 	
-	public ArrayList<Double> getWeightVector(ArrayList<ArrayList<Double>> data, ArrayList<Double> test) {
-				int length=0;
-				if(data==null)
-					return null;
-				else{
-					length=data.get(0).size();
+	public double[] getWeightVector(double[][] data, double[][] weight, double[] y) {
+		double[] y_estimate=new double[y.length];
+
+		double lambda=0.5;
+		for(int i=0;i<=data.length-1;i++){
+			y_estimate[i]=dot_product(weight[i], data[i]);
+			if(y_estimate[i]!=y[i]){
+				for(int j=0;j<=weight[0].length-1;j++){
+					weight[i][j]=weight[i][j]+lambda*(y[i]-y_estimate[i])*data[i][j];
 				}
-				int bias=6;
-				ArrayList<Double> weightVector = new ArrayList<Double>();   
-		        for(int i = 0; i <= length-1; i++) {  
-		            weightVector.add(1d);  
-		        } 
-		        int sign;
-		        double lamda=0.5;
-		        int T=100;
-		        double result=0;
-		        for(int iter=0;iter<=T-1;iter++){
-		        	for(int m=0;m<=data.size()-1;m++){
-		        		for(int j=0;j<=data.get(0).size()-1;j++){
-		        			 result=(int) (data.get(m).get(j)*weightVector.get(j));
-		        		}
-		        			if(result>bias){
-		        				sign=1;
-		        			}else{
-		        				sign=-1;
-		        			}
-		        		for(int k=0;k<=length-1; k++){
-		        			weightVector.set(k,weightVector.get(k)+ lamda*(test.get(m)-sign)*data.get(m).get(k));			
-		        		}
-		        	}
-		        }
-		        return weightVector;
+			}
+		}
+		double[] result=average_weight(weight);
+		return result;	
 }
+	
+	public static double dot_product(double[] a,double[] b){
+		double sum=0;
+		for(int i=0;i<=a.length-1;i++){
+			sum+=a[i]*b[i];
+		}
+		return sum;
+	}
+	
+	public static double[] average_weight(double[][] w){
+		double[] r=new double[w[0].length];
+		for(int j=0;j<=w[0].length-1;j++){
+			double sum=0;
+			for(int i=0;i<=w.length-1;i++){
+				sum+=w[i][j];	
+			}
+			r[j]=sum/w.length;
+		}
+		return r;
+	}
 	
 }
