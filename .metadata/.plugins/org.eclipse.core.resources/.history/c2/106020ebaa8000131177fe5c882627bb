@@ -53,7 +53,22 @@ public class parlindrome_partitioning {
 		}
 }
 	
-
+	
+//	public static boolean isParlindrome(String str){
+//		int len=str.length();
+//		int left=0;
+//		int right=len-1;
+//		
+//		while(left<=right){
+//			
+//			if(str.charAt(left)!=str.charAt(right)){
+//				return false;
+//			}
+//			left++;
+//			right--;
+//		}
+//		return true;
+//	}
 	public static boolean isParlindrome(String s) {
         int left = 0, right = s.length() - 1;
         while(right >= left) {
