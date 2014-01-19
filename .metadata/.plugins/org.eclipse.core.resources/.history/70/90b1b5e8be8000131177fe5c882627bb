@@ -12,7 +12,7 @@ public class PerceptronAlgorithm {
 			System.out.println(r);
 			
 			
-			double[][] w={{1,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0}};
+			double[][] w={{1,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0}};
 			double[] re=average_half_weight(w);
 			for(double x:re){
 			System.out.println(x);
@@ -34,7 +34,6 @@ public class PerceptronAlgorithm {
 			}
 		}
 		double[] result=average_half_weight(weight);
-		// this is to get the later half of the average weight.
 		return result;	
 }
 	
@@ -46,6 +45,17 @@ public class PerceptronAlgorithm {
 		return sum;
 	}
 	
+	public static double[] average_weight(double[][] w){
+		double[] r=new double[w[0].length];
+		for(int j=0;j<=w[0].length-1;j++){
+			double sum=0;
+			for(int i=0;i<=w.length-1;i++){
+				sum+=w[i][j];	
+			}
+			r[j]=sum/w.length;
+		}
+		return r;
+	}
 	
 	public static double[] average_half_weight(double[][] w){
 		double[] r=new double[w[0].length];
@@ -55,9 +65,8 @@ public class PerceptronAlgorithm {
 			int count=0;
 			for(int i=half;i<=w.length-1;i++){
 				sum+=w[i][j];	
-				count++;
 			}
-			r[j]=sum/count;
+			r[j]=sum/Math.floor(w.length/2);
 		}
 		return r;
 	}
