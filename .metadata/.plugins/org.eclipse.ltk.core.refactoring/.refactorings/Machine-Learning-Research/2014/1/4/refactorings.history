@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;perceptron&apos; to &apos;ML_research/src&apos;&#x0A;- Original project: &apos;Machine-Learning-Research&apos;&#x0A;- Destination element: &apos;ML_research/src&apos;&#x0A;- Original element: &apos;Machine-Learning-Research/src/perceptron&apos;&#x0A;- Update references to refactored element" description="Move package" destination="=ML_research/src" element1="/src&lt;perceptron" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1390192674192" version="1.0"/>
+</session>

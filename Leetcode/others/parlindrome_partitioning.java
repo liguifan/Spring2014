@@ -44,7 +44,6 @@ public class parlindrome_partitioning {
 		}
 		for(int i=start+1;i<=len;i++){
 			String temp=str.substring(start,i);
-			System.out.println(temp);
 			if(isParlindrome(temp)){
 				list.add(temp);
 				partition(i,str,list,res);

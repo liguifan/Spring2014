@@ -1,0 +1,46 @@
+package others;
+
+import java.util.ArrayList;
+
+public class decode_ways {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<String> path=new ArrayList<String>();
+		ArrayList<ArrayList<String>> res=new ArrayList<ArrayList<String>>();
+		String str="12";
+		decode_ways(str,0,path,res);
+		for(ArrayList<String> x:res){
+			System.out.println(x);
+		}
+		
+
+	}
+	public static void decode_ways(String str,int start,ArrayList<String> path,ArrayList<ArrayList<String>> res){
+		if(start==str.length()){
+			res.add(new ArrayList<String>(path));
+		}
+
+		for(int i=start+1;i<=str.length();i++){
+			String sub=str.substring(start,i);
+			System.out.println(sub);
+			if(string_to_num(sub)){
+				path.add(sub);
+				decode_ways(str,i,path,res);
+				path.remove(path.size()-1);
+			}
+		}
+		
+	}
+	
+	public static boolean string_to_num(String str){
+		int sum=0;
+		for(int i=0;i<=str.length()-1;i++){
+			sum=10*sum+((int)str.charAt(i)-48);
+		}
+		if(sum<=26)
+			return true;
+		else
+			return false;
+	}
+}

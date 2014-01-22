@@ -1,0 +1,28 @@
+package others;
+
+import java.util.Set;
+
+public class word_break {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	
+	public static boolean wordBreak(String s,Set<String> dict){
+		int len=s.length();
+		
+		int start=0;
+		int i=0;
+		while(int i<=len){
+			while(i<=s.length()){
+				String sub=s.subSequence(start, i);
+				
+			}
+		}
+	}
+
+}
