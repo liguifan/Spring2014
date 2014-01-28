@@ -1,0 +1,41 @@
+package perceptron;
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import datastructure.Tuple;
+
+
+
+public class pattern_matching {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+		String a="f365:1.22e-5";
+
+		
+		Tuple result=extract_value(a);
+		System.out.println(result.index +" is "+result.value);
+		
+		
+	}
+	
+	// Pass the format like fxxx:xxxxe-01, return a tuple with first value is index and second value is its 
+	// value for that index.
+	public static Tuple extract_value(String single){
+		String new_str=single.substring(1,single.length());
+		String[] arr=new_str.split(":");
+		int index=Integer.parseInt(arr[0]);
+		double value=Double.parseDouble(arr[1]);
+		Tuple result=new Tuple(index,value);
+		return result;
+	}
+	
+	
+	
+	
+
+}

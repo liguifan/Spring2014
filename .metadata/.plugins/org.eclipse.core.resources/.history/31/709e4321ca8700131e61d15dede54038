@@ -1,0 +1,26 @@
+package others;
+
+public class distinct_subsequences {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public static int distinct_seqs(String S,String T){
+		int count=0;
+		if(S.length()==0){
+			if(T.length()==0) return 1;
+			else return 0;
+		}
+		
+		
+		for(int i=0;i<=S.length()-1;i++){
+			if(S.charAt(i)==T.charAt(0)){
+				count+=distinct_seqs(S.substring(i+1), T.substring(1));
+			}
+		}
+	}
+
+}

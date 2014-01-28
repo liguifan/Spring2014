@@ -1,0 +1,158 @@
+package perceptron;
+
+import java.util.ArrayList;
+
+
+public class PerceptronAlgorithm {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			double[] a={1.2,2,3};
+			double[] b={4,5,6};
+			
+			double r=dot_product(a, b);
+			System.out.println(r);
+			
+			
+			double[][] w={{1,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0},{1.2,2.0,2.0,3.0,4.0}};
+			double[] re=average_half_weight(w);
+			
+			
+			
+			
+			ArrayList<Double> weight=new ArrayList<Double>();
+			weight.add(4d);
+			weight.add(5d);
+			weight.add(6d);
+//			weight.add(3.0);
+//			weight.add(4.0);
+			
+			double sum2=dot_product2(toArrayList(b), a);
+			System.out.println("test "+sum2);
+			
+	}
+	
+	// getWeightVector save the iteration step and use the average weight as result
+	// Because the rows of weight are keeping changing all the time. So we make weight as a 2 dimensional 
+	// ArrayList
+	// rather than two dimension array.
+	public double[] getWeightVector(double[][] data, double[] y) {
+		int len=data[0].length;
+		double[] y_estimate=new double[y.length];
+		ArrayList<Double> weight=new ArrayList<Double>();
+		for(int j=0;j<=data[0].length-1;j++){
+			weight.add(1d);
+		}
+		
+		ArrayList<ArrayList<Double>> weightset=new ArrayList<ArrayList<Double>>();
+		weightset.add(weight);
+		double lambda=0.5;
+		int k=0;
+		for(int i=0;i<=data.length-1;i++){
+			y_estimate[i]=Math.signum(dot_product2(weightset.get(weightset.size()-1), data[i]));
+			//only update weight of the non-consistent examples.
+			if(y_estimate[i]!=y[i]){
+				for(int j=0;j<=len-1;j++){
+					ArrayList<Double> weight_temp=new ArrayList<Double>();
+					weight_temp.set(j, weightset.get(weightset.size()-1).get(j)+lambda*(y[i]-y_estimate[i])*data[i][j]);
+					weightset.add(weight_temp);
+					k++;
+				}
+			}
+		}
+		// this is to get the later half of the average weight.
+		double[] result=average_half_weight2(weightset);
+
+		return result;	
+}
+	
+	//if it is a sparse vector, this will save a lot of time by avoiding zero multiplication.
+	// Test ok!
+	public static double dot_product(double[] a,double[] b){
+		double sum=0;
+		for(int i=0;i<=a.length-1;i++){
+			if(a[i]==0 || b[i]==0){
+				i++;
+			}else{
+				sum+=a[i]*b[i];
+			}
+		}
+		return sum;
+	}
+	
+	
+	// Test ok!
+	public static double dot_product2(ArrayList<Double> weight,double[] data_sample){
+		int len=data_sample.length;
+		double sum=0;
+		for(int i=0;i<=len-1;i++){
+			if(weight.get(i)==0 || data_sample[i]==0){
+				i++;
+			}else{
+				sum+=weight.get(i)*data_sample[i];
+			}
+		}
+		return sum;
+	}
+	
+	
+	public static double[] average_half_weight(double[][] w){
+		double[] r=new double[w[0].length];
+		int half=(int) Math.floor(w.length/2);
+		for(int j=0;j<=w[0].length-1;j++){
+			double sum=0;
+			int count=0;
+			for(int i=half;i<=w.length-1;i++){
+				sum+=w[i][j];	
+				count++;
+			}
+			r[j]=sum/count;
+		}
+		return r;
+	}
+	// This has the same function as above but using the 2 dimensional arraylist as input.
+	// Test ok!
+	public static double[] average_half_weight2(ArrayList<ArrayList<Double>> w){
+		int col_size=w.get(0).size();
+		int row_size=w.size();
+		double[] r=new double[col_size];
+		int half=(int) Math.floor(row_size/2);
+		for(int j=0;j<=col_size-1;j++){
+			double sum=0;
+			int count=0;
+			for(int i=half;i<=row_size-1;i++){
+				sum+=w.get(i).get(j);	
+				count++;
+			}
+			r[j]=sum/count;
+		}
+		return r;
+	}
+	
+	
+	public static ArrayList<Double> toArrayList(double[] data){
+		int len=data.length;
+		ArrayList<Double> data_list=new ArrayList<Double>();
+		for(int i=0;i<=len-1;i++){
+			data_list.add(data[i]);
+		}
+		
+		return data_list;
+	}
+	
+	
+	public static double[] predication(ArrayList<Double> weight,double[][] data){
+		int len=data[0].length;
+		double[][] 
+		
+		for(int i=0;i<=len-1;i++){
+			for(int j=0;j<=data[0].length;j++){
+			sum[i]+=weight.get(j)*data[j];
+		}
+	}
+		
+		if(sum>0)
+			
+	}
+	
+}

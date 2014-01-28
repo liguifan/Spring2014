@@ -1,0 +1,117 @@
+package perceptron;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import datastructure.Tuple;
+
+public class Error_rate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////////////////////////////////
+		// Compute error on test data set.
+		File weight_file=new File("/Users/liguifan/Desktop/data/weight-rcv1-train.txt");
+		double[] weight;
+		
+		for(int i=0;i<=len-1;i++){
+			weight[i]=
+		}
+		
+		
+		File training_data=new File("/Users/liguifan/Desktop/data/rcv1-train.vw");
+		BufferedReader training_reader=null;
+		ArrayList<Integer> y_est_train=new ArrayList<Integer>();
+		try{
+			training_reader=new BufferedReader(new FileReader(training_data));
+			String tempstr_train=null;
+
+			while((tempstr_train=training_reader.readLine())!=null){
+				double b_train=extrac_bias_term(tempstr_train);
+				ArrayList<Tuple> path_train=read_into_tuples(tempstr_train);
+				int y_est=predication(weight, path_train, b_train);
+			}
+			training_reader.close();
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}finally{
+			if(training_reader!=null){
+				try{
+					training_reader.close();
+				}catch (IOException e1){
+				}
+			}
+		}
+	}
+	
+	public static ArrayList<Tuple> read_into_tuples(String line){
+		String[] line1=line.split("features");
+		String[] line2=line1[1].split("const:");
+		String valid_line=line2[0].substring(1,line2[0].length());
+		String[] arr=valid_line.split(" ");
+		System.out.println(arr[0]);
+		ArrayList<Tuple> set=new ArrayList<Tuple>();
+		for(String single:arr){
+			Tuple temp=extract_value(single);
+			set.add(temp);
+		}
+		return set;
+	}
+	
+	
+	public static Tuple extract_value(String single){
+		String new_str=single.substring(1,single.length());
+		String[] arr=new_str.split(":");
+		int index=Integer.parseInt(arr[0]);
+		double value=Double.parseDouble(arr[1]);
+		Tuple result=new Tuple(index,value);
+		return result;
+	}
+	
+	// test ok!
+	public static double sparse_dot_product(double[] weight, ArrayList<Tuple> tuple){
+		
+		double sum=0;
+		for(Tuple x:tuple){
+			sum+=weight[x.index]*x.value;
+		}
+		return sum;
+	}
+	
+	// test ok!
+	public static double[] update_weight(double[] weight, int y, ArrayList<Tuple> tuple){
+		for(Tuple x:tuple){
+			weight[x.index]+=y*x.value;
+		}
+		return weight;
+	}
+	
+	// test ok!
+	// This is to predict
+	public static int predication(double[] weight,ArrayList<Tuple> tuple, double b){
+			int response;
+			double t=sparse_dot_product(weight, tuple)-b;
+			response=(t>=0)?1:-1;
+			return response;
+		}
+		
+	// test ok!
+	// This is to extract the value of "const:value" as the bias term;
+	public static double extrac_bias_term(String line){
+			String[] line1=line.split("features");
+			String[] line2=line1[1].split("const:");
+			String const_term=line2[1];
+			double bias_term=Double.parseDouble(const_term);
+			return bias_term;
+		}
+	
+	
+	
+
+}

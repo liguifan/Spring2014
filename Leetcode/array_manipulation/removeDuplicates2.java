@@ -4,8 +4,8 @@ public class removeDuplicates2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-			int[] a={1,1,};
-			int result=remove_dup(a);
+			int[] a={1,1,3,4,4,5,6,6,6,6};
+			int result=removeDuplicates(a, a.length);
 			System.out.println(result);
 	}
 	
@@ -42,9 +42,12 @@ public class removeDuplicates2 {
         int cur = 1;
         for(int i = 2; i < n; i++)
         {
-            if(!(A[i] == A[cur] && A[i] == A[cur - 1]))
-                A[++cur] = A[i];
+            if(!(A[i] == A[cur] && A[i] == A[cur - 1])){
+                A[cur+1] = A[i];
+            	cur++;
+            }
         }
+        // because cur is the index, but the return number is the actual size, so need to +1
         return cur+1;
     }
 	}

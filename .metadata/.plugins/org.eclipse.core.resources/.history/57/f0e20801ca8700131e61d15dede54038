@@ -1,0 +1,10 @@
+package others;
+
+public class distinct_subsequences {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

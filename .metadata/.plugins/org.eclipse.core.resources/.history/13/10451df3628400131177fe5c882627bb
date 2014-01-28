@@ -1,0 +1,32 @@
+package linked_list;
+
+import datastructure.ListNode;
+
+public class add_two_numbers {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public static ListNode add_two(ListNode a,ListNode b){
+		ListNode p1=a;
+		ListNode p2=b;
+		ListNode p3=new ListNode(Integer.MIN_VALUE);
+		
+		while(p1.next!=null && p2.next!=null){
+			p3.next=new ListNode(p1.val+p2.val);
+			p3=p3.next;
+			p1=p1.next;
+			p2=p2.next;
+		}
+		
+		if(p1.next==null){
+			p1.next=p2.next;
+		}
+		
+		
+	}
+
+}

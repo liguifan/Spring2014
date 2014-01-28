@@ -1,0 +1,72 @@
+package perceptron;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class read_data {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+
+		File file=new File("/Users/liguifan/Desktop/rcv1-train.vw");
+		
+		BufferedReader reader=null;
+	
+		int i=0;
+		try{
+			reader=new BufferedReader(new FileReader(file));
+			String tempstr=null;
+			int line=1;
+			while((tempstr=reader.readLine())!=null){
+				
+				
+//				int y=read_class(tempstr);
+				String new_line=cut_off(tempstr);
+				String[] single_pattern=new_line.split(" ");
+				
+				
+				System.out.println("comparing "+new_line);
+				
+				line++;
+			}
+			reader.close();
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}finally{
+			if(reader!=null){
+				try{
+					reader.close();
+				}catch (IOException e1){
+				}
+			}
+		}
+	}
+	
+	
+	
+	public static int read_class(String line){
+		int y=(int)line.charAt(0)-48;
+		return y;
+	}
+	
+	
+	public static String cut_off(String line){
+		String new_line=line.substring(12,line.length()-10);
+		return new_line;
+	}
+	
+	public static String[] split_string(String line){
+		String[] arr=line.split(" ");
+		return arr;
+	}
+	
+	public static int get_index(String single){
+		String[] arr=single.split(":");
+		int index=Integer.parseInt(arr[0]);
+		
+		return index;
+	}
+	
+}

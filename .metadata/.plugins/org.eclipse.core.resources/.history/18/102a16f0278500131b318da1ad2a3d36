@@ -1,0 +1,62 @@
+package perceptron;
+
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import datastructure.Tuple;
+
+
+
+public class pattern_matching {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	
+		String a="f3653333:1.22e-5";
+//		String regEx="[^0-9]:";   
+//		Pattern p = Pattern.compile(regEx);   
+//		Matcher m = p.matcher(a);   
+//		
+//		int index=extract_index(a);
+//		System.out.println(index);
+//		
+//		extract_value(a);
+//		
+//		
+//		
+//		
+//		ArrayList<Tuple> set=new ArrayList<Tuple>();
+//		set.add(new Tuple(345,0.343));
+//		set.add(new Tuple(12,0.343));
+//		set.add(new Tuple(122,0.1366));
+//		
+//		double[] weight=new double[500];
+//		for(int i=0;i<=500-1;i++){
+//			weight[i]=1	;
+//		}
+//		
+//		double re=sparse_dot_product(weight, set);
+//		System.out.println(re);
+		
+		Tuple result=extract_value(a);
+		
+		
+	}
+	
+	
+	public static Tuple extract_value(String single){
+		String new_str=single.substring(1,single.length());
+		String[] arr=new_str.split(":");
+		int index=Integer.parseInt(arr[0]);
+		double value=Double.parseDouble(arr[1]);
+		Tuple result=new Tuple(index,value);
+		return result;
+	}
+	
+	
+	
+	
+
+}

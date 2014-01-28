@@ -1,0 +1,13 @@
+package others;
+
+public class find_kth_smallest_element {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+
+}

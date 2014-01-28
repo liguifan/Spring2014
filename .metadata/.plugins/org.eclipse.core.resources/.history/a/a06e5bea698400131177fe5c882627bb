@@ -1,0 +1,17 @@
+package array_manipulation;
+
+import java.util.ArrayList;
+
+public class three_sum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	
+	public static ArrayList<ArrayList<Integer>> set 
+
+}

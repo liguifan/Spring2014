@@ -1,0 +1,43 @@
+package perceptron;
+
+import java.util.ArrayList;
+
+import datastructure.Tuple;
+
+public class test2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+public static ArrayList<Tuple> read_into_tuples(String line){
+
+		String[] line1=line.split("feature");
+		String[] line2=line1[1].split("const");
+		String const_term=line2[1];
+		double const_value=Double.parseDouble(const_term);
+	
+		String[] arr=new_line.split(" ");
+		ArrayList<Tuple> set=new ArrayList<Tuple>();
+		for(String single:arr){
+			Tuple temp=extract_value(single);
+			set.add(temp);
+		}
+		return set;
+	}
+
+public static Tuple extract_value(String single){
+	String new_str=single.substring(1,single.length());
+	String[] arr=new_str.split(":");
+	int index=Integer.parseInt(arr[0]);
+	double value=Double.parseDouble(arr[1]);
+	Tuple result=new Tuple(index,value);
+	return result;
+}
+
+
+
+}

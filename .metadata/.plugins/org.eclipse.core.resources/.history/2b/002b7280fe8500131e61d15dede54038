@@ -1,0 +1,116 @@
+package perceptron;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import datastructure.Tuple;
+
+public class read_data {
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		ArrayList<ArrayList<Tuple>> data= new ArrayList<ArrayList<Tuple>>();
+		File file=new File("/Users/liguifan/Desktop/rcv1-train.vw");
+		
+		BufferedReader reader=null;
+		int len=50000;
+		double[] weight=new double[len];
+		int i=0;
+		try{
+			reader=new BufferedReader(new FileReader(file));
+			String tempstr=null;
+			int line=1;
+			while((tempstr=reader.readLine())!=null){
+				
+				ArrayList<Tuple> path=read_into_tuples(tempstr);
+				int y=(int) tempstr.charAt(0)-48;
+				double response=sparse_dot_product(weight, path);
+				int y_est;
+				if(response>0){
+					y_est=1;
+				}else
+				{
+					y_est=0;
+				}
+				
+				if(y!=y_est){
+					weight=update_weight(weight,y,path);
+				}
+				
+				line++;
+			}
+			reader.close();
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}finally{
+			if(reader!=null){
+				try{
+					reader.close();
+				}catch (IOException e1){
+				}
+			}
+		}
+		
+		
+		for(double x:weight){
+			if(x>0){
+			System.out.println(x);
+			}
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
+	//Test ok!
+	// Read one original line and return all the tuples corresponding to every predictor in this line;
+	public static ArrayList<Tuple> read_into_tuples(String line){
+		String new_line=line.substring(12,line.length()-10);
+		String[] arr=new_line.split(" ");
+		ArrayList<Tuple> set=new ArrayList<Tuple>();
+		for(String single:arr){
+			Tuple temp=extract_value(single);
+			set.add(temp);
+		}
+		return set;
+	}
+	
+	// Extract every single term of that line;
+	public static Tuple extract_value(String single){
+		String new_str=single.substring(1,single.length());
+		String[] arr=new_str.split(":");
+		int index=Integer.parseInt(arr[0]);
+		double value=Double.parseDouble(arr[1]);
+		Tuple result=new Tuple(index,value);
+		return result;
+	}
+	
+	public static double sparse_dot_product(double[] weight, ArrayList<Tuple> tuple){
+		
+		double sum=0;
+		for(Tuple x:tuple){
+			sum+=weight[x.index]*x.value;
+		}
+		return sum;
+	}
+	
+	public static double[] update_weight(double[] weight, int y, ArrayList<Tuple> x){
+		for(Tuple single:x){
+			weight[single.index]+=y*single.value;
+		}
+		return weight;
+	}
+	
+	public static int predication(double[] weight,ArrayList<Tuple> x){
+		
+		
+		int response=sparse_dot_product(weight, x);
+		return response;
+	}
+	
+}
