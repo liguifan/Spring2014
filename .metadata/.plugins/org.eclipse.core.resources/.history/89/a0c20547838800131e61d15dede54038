@@ -9,16 +9,14 @@ public class find_kth_smallest_element {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-//		PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
-		int[] arr={8,41,52,2,7,95,12,45,27,1,4,3,5,78,55,61};
-		int[] re=find_kth_largest(arr, 5);
-		for(int x:re){
-			System.out.println(x);
-		}
+
 	}
 	
 	
-
+	public static int find_kth(int[] arr){
+		PriorityQueue<ListNode> t=new PriorityQueue<ListNode>();
+	}
+	
 	
 	public static int[] find_kth_smallest(int[] arr,int k){
 		PriorityQueue<Integer> queue=new PriorityQueue<Integer>(k,Collections.reverseOrder());
