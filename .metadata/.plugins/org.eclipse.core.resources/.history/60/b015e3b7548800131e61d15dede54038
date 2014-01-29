@@ -1,0 +1,15 @@
+package heap_manipulation;
+
+import java.util.PriorityQueue;
+
+public class heap_implementation {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PriorityQueue<Integer> queue=new PriorityQueue<Integer>();
+		
+		queue.add(2);
+		queue.add(3);
+	}
+
+}

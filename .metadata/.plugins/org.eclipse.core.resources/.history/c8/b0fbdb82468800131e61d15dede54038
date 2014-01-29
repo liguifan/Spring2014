@@ -1,0 +1,32 @@
+package FOUNDATION;
+
+public class quick_sort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	public static void quicksort(int[] A,int start,int end){
+		
+	}
+	
+	
+	
+	public static int partition(int[] A,int p,int r){
+		int i=p-1;
+		int x=A[r-1];
+		int j=p;
+		for(j=p;j<=r-1;j++){
+			if(A[j]<=x){
+				i++;
+				swap(A[j],A[i]);
+			}
+		}
+		
+		return j+1
+	}
+
+}
