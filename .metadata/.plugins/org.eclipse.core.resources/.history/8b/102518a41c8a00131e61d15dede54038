@@ -1,0 +1,12 @@
+package datastructure;
+
+public class Tuple {
+	public int index;
+	public double value;
+	Tuple next;
+	public Tuple (int x, double val){
+		index=x;
+		value=val;
+		next=null;
+	}
+}
