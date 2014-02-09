@@ -1,0 +1,16 @@
+package interfaces;
+
+public class Machine implements Info{
+	
+	private int id=7;
+	
+	public void start(){
+		System.out.println("Mahcine started. ");
+	}
+
+	@Override
+	public void showInfor() {
+		// TODO Auto-generated method stub
+		System.out.println("Machine is is "+id);
+	}
+}

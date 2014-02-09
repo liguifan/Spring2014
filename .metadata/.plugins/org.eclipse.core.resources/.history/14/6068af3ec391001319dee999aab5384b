@@ -1,0 +1,10 @@
+package array_manipulation;
+
+public class search_for_a_range {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

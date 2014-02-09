@@ -1,0 +1,16 @@
+package inheritence;
+
+public class Employee {
+		private String name;
+//		private Date hireDate;
+		
+		public Employee(){
+			name="no name";
+		}
+		
+		public Employee(String theName){
+			name=theName;
+			
+		}
+		
+}

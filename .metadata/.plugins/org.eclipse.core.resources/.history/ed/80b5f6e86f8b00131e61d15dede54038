@@ -1,0 +1,26 @@
+package inheritence;
+
+public class OverLoading_Overriting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// this is overriting 	
+		Animal a1=new Animal();
+		Animal a2=new Cat();
+		Animal a3=new Dog();
+		
+		
+		
+		
+		a1.speak();
+		a2.speak();
+		a3.speak();
+		a3.speak("james");
+		
+		
+		HourlyEmployee e1=new HourlyEmployee("liguifan", 5,5);
+		
+		e1.toString();
+	}
+
+}

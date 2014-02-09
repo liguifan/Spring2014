@@ -1,0 +1,22 @@
+
+public class Make_change {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		
+		
+		
+	}
+	
+	
+	
+	public static int makechange(int x){
+		
+		
+		
+		return makechange(x-5)+makechange(x-2)+makechange(x-1);
+	}
+
+}

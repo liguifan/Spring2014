@@ -1,0 +1,72 @@
+package perceptron;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s1="12314141";
+		long s=System.nanoTime();
+	
+		int x=parseInt(s1);
+		long e=System.nanoTime();
+		System.out.println(x);
+		
+		
+		String s3="0.3435451524e-5";
+
+		
+		
+		
+		System.out.println(parseDouble(s3));
+	
+	}
+	
+	
+//	public static int parseInt( String s )
+//	{
+//	    int num  = 0;
+//	    final int len  = s.length( );
+//	    int i = 1;
+//	    while ( i < len )
+//	        num = num*10 + '0' - s.charAt( i++ );
+//	    return num;
+//	} 
+	
+	public static int parseInt(String str){
+		int sum=0;
+		for(int i=0;i<=str.length()-1;i++){
+			sum=10*sum+((int)str.charAt(i)-48);
+		}
+		return sum;
+	}
+	
+	public static double parseDouble(String num) {
+		String[] arr=num.split("e");
+		double sum = 0;
+		int sign = 1;
+		String left="";
+		double first=0;
+		if(num.charAt(0)=='-'){
+			first=num.charAt(1)-48;
+			System.out.println("first "+first);
+			left=num.substring(1,arr[0].length());
+			sign=-1;
+		}else{
+			first=num.charAt(0)-48;
+			System.out.println("first "+first);
+			left=arr[0];
+		}
+		
+		
+		String after_point=left.substring(2,left.length());
+		System.out.println("after "+left);
+		double decimal=parseInt(after_point)/(left.length()-2);
+		System.out.println("decimal "+parseInt(after_point));
+		sum=first+decimal;
+		
+		return  (double) sum*sign;
+		
+    
+	}
+
+}

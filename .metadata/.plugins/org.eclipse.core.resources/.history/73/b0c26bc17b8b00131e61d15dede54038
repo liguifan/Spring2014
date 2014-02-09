@@ -1,0 +1,30 @@
+package interfaces;
+
+public class App {
+		public static void main(String[] args){
+			Machine mach1= new Machine();
+			mach1.start();
+			
+			
+			Person person1=new Person("James");
+			
+			person1.greet();
+			
+			
+			Info info1= new Machine();
+			info1.showInfor();
+			
+			
+			Info info2=person1;
+			info2.showInfor();
+			
+			
+			outputinfo(mach1);
+		}
+		
+		
+		private static void outputinfo(Info info){
+			info.showInfor();
+			
+		}
+}

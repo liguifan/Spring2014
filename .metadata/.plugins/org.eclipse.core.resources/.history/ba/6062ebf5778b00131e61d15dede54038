@@ -1,0 +1,9 @@
+package game;
+
+public  class Player extends GameObject{
+
+	public static void main(String[] args){
+		Player player=new Player();
+		
+	}
+}

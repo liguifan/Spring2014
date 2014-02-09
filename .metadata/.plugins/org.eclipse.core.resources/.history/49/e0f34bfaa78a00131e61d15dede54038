@@ -1,0 +1,14 @@
+package inheritence;
+
+public class HourlyEmployee extends Employee{
+
+	
+	
+	private double wageRate;
+	private double hours;
+	
+	
+	public HourlyEmployee() {
+		// TODO Auto-generated constructor stub
+	}
+}

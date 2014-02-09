@@ -1,0 +1,10 @@
+package game;
+
+public abstract class GameObject {
+
+	public static void main(String[] args){
+		Player player=new Player();
+		
+		GameObject myObject=new GameObject();
+	}
+}

@@ -1,0 +1,61 @@
+package perceptron;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s1="123";
+		long s=System.nanoTime();
+//		Integer.parseInt(s1);
+		int x=parseInt(s1);
+		long e=System.nanoTime();
+		
+		
+		
+		String s3="0.3435451524e-5";
+		long s2=System.nanoTime();
+//		Integer.parseInt(s1);
+		double x2=parseDouble(s3);
+		long e2=System.nanoTime();
+		
+		System.out.println(e2-s2);
+	}
+	
+	
+	public static int parseInt( final String s )
+	{
+	    int num  = 0;
+	    final int len  = s.length( );
+	    int i = 1;
+	    while ( i < len )
+	        num = num*10 + '0' - s.charAt( i++ );
+	    return num;
+	} 
+	
+	public static double parseDouble(String num) {
+		String[] arr=num.split("e");
+		double sum = 0;
+		int sign = 1;
+		String left="";
+		double first=0;
+		if(num.charAt(0)=='-'){
+			first=num.charAt(1)-48;
+			left=num.substring(1,arr[0].length());
+			sign=-1;
+		}else{
+			first=num.charAt(0)-48;
+			left=arr[0];
+		}
+		
+		
+		String after_point=left.substring(3,left.length());
+		
+		double decimal=parseInt(after_point)/left.length();
+		sum=first+decimal;
+		
+		return  (double) sum*sign;
+		
+    
+	}
+
+}

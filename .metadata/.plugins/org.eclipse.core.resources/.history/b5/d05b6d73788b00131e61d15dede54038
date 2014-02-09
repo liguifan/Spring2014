@@ -1,0 +1,20 @@
+package game;
+
+public abstract class GameObject {
+	
+	public abstract void draw();
+
+	public static void main(String[] args){
+		GameObject player=new Player(); 
+		
+//		GameObject myObject=new GameObject();
+		
+		player.draw();
+		
+		
+		GameObject menu=new Menu();
+		menu.draw();
+		
+	}
+	
+}

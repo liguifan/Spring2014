@@ -1,0 +1,46 @@
+package array_manipulation;
+
+import java.util.ArrayList;
+
+public class search_for_a_range {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	public static ArrayList<Integer> search(int[] A, int target){
+		ArrayList<Integer> pocket=new ArrayList<Integer>();
+		int p=0;
+		int q=A.length-1;
+		int mid=(p+q)/2;
+		while(p<=q){
+			if(A[mid]<target){
+				if(A[mid+1]==target){
+					pocket.add(mid+1);
+				}
+				else
+					p=mid+1;
+			}
+			
+			else if(A[mid]>target){
+				if(A[mid-1]==target){
+					pocket.add(mid-1);
+				}
+				else
+					q=mid-1;
+			}
+			else
+			{
+				q=mid-1;
+			}
+			
+			
+		}
+		
+		
+	}
+
+}

@@ -1,0 +1,58 @@
+package DP;
+
+public class longest_palindromic_substring {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="abba";
+		
+		String re=longest_palindrome(s);
+		System.out.println(re);
+	}
+	
+	
+	
+	public static String longest_palindrome(String s){
+		String longest_s="";
+		int len=s.length();
+		int max=0;
+		
+		
+		for(int i=1;i<=len-1;i++){
+			int l=i;
+			int r=i+1;
+			int lw=i-1;
+			int rw=i+1;
+			
+			while(l>=0 && r<=len-1){
+				
+				if(s.charAt(l)!=s.charAt(r)){
+					break;
+				}
+				l--;
+				r++;
+			}
+			
+			while(lw>=0 && rw<=len-1){
+				
+				if(s.charAt(lw)!=s.charAt(rw)){
+					break;
+				}
+				lw--;
+				rw++;
+			}
+			
+			if(r-l>max){
+				max=r-l;
+				longest_s=s.substring(l+1,r);
+			}
+			
+			if(rw-lw>max){
+				max=rw-lw;
+				longest_s=s.substring(lw+1,rw);
+			}
+		}
+		return longest_s;
+	}
+
+}

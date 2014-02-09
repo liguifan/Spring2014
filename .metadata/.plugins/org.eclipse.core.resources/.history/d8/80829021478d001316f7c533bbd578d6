@@ -1,0 +1,37 @@
+package Stochastic_gradient_decent;
+
+import java.util.ArrayList;
+
+import datastructure.Tuple;
+
+public class gradient_decent {
+	final static int MAX=100;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	
+	
+	public static double[] gradient_find(double[] theta){
+		double alpha=0;
+		double diff=0;
+		
+		for(int i=0;i<=MAX-1;i++){
+			diff= h_theta(x)-y;
+			theta[i]+=theta[i]-alpha*diff*x[i];
+		}
+		
+		//x[i] is the ith iteration and x[i] is a vector.
+	}
+	
+	
+	public static double h_theta(double[] theta, ArrayList<Tuple> X){
+		double sum=0;
+		for(Tuple x:X){
+			sum+=theta[x.index]*x.value;
+		}
+		
+		return sum;
+	}
+}

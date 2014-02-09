@@ -1,0 +1,16 @@
+package inheritence;
+
+public class HourlyEmployee extends Employee{
+
+	
+	
+	private double wageRate;
+	private double hours;
+	
+	
+	public HourlyEmployee() {
+		super();
+		wageRate=0;
+		hours=0;
+	}
+}

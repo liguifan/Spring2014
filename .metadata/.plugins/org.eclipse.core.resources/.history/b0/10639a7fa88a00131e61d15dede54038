@@ -1,0 +1,33 @@
+package inheritence;
+
+public class HourlyEmployee extends Employee{
+
+	
+	
+	private double wageRate;
+	private double hours;
+	
+	
+	public HourlyEmployee() {
+		super();
+		this.wageRate=0;
+		this.setHours(0);
+	}
+	
+	
+	public HourlyEmployee(String theName, double a, double b){
+		super(theName);
+		this.wageRate=a;
+		this.setHours(b);
+	}
+
+
+	public double getHours() {
+		return hours;
+	}
+
+
+	public void setHours(double hours) {
+		this.hours = hours;
+	}
+}

@@ -1,0 +1,16 @@
+package inheritence;
+
+public class OverLoading_Overriting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			
+		Animal a1=new Animal();
+		Cat a2=new Cat();
+		Dog a3=new Dog();
+		
+		
+		
+	}
+
+}

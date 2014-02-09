@@ -1,0 +1,16 @@
+package interfaces;
+
+public class App {
+		public static void main(String[] args){
+			String s1="hello";
+			String s2=s1;
+			
+			System.out.println(s2);
+		}
+		
+		
+		private static void outputinfo(Info info){
+			info.showInfor();
+			
+		}
+}

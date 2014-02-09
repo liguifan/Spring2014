@@ -1,0 +1,10 @@
+package interfaces;
+
+public class Machine {
+	
+	private in id=7;
+	
+	public void start(){
+		System.out.println("Mahcine started. ");
+	}
+}
