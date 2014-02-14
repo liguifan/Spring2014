@@ -1,0 +1,29 @@
+package others;
+
+public class candy {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	public static int candy_count(int[] rate){
+		
+		int[] candy=new int[rate.length];
+		for(int i=0;i<rate.length;i++){
+			if(rate[i]<rate[i+1]){
+				candy[i+1]=candy[i]+1;
+			}else
+				candy[i]=1;
+		}
+		
+		for(int i=rate.length-2;i>=0;i--){
+			if(rate[i]>rate[i+1]){
+				
+			}
+		}
+	}
+
+}

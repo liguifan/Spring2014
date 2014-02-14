@@ -48,3 +48,16 @@ Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.
 
 !ENTRY org.eclipse.core.net 1 0 2014-02-09 14:00:52.025
 !MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.equinox.p2.director 4 10053 2014-02-12 19:04:34.931
+!MESSAGE Cannot complete the install because one or more required items could not be found.
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 0 2014-02-12 19:04:34.931
+!MESSAGE Software currently installed: Amazon SimpleDB Management 1.0.0.v201401171526 (com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group 1.0.0.v201401171526)
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 0 2014-02-12 19:04:34.931
+!MESSAGE Missing requirement: Eclipse Data Tools Platform Amazon SimpleDB UI Plug-in 1.0.0.v201401171526 (com.amazonaws.eclipse.datatools.enablement.simpledb.ui 1.0.0.v201401171526) requires 'bundle org.eclipse.datatools.sqltools.sqlscrapbook 1.0.0' but it could not be found
+!SUBENTRY 1 org.eclipse.equinox.p2.director 4 1 2014-02-12 19:04:34.931
+!MESSAGE Cannot satisfy dependency:
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-12 19:04:34.931
+!MESSAGE From: Amazon SimpleDB Management 1.0.0.v201401171526 (com.amazonaws.eclipse.datatools.enablement.simpledb.feature.feature.group 1.0.0.v201401171526)
+!SUBENTRY 2 org.eclipse.equinox.p2.director 4 0 2014-02-12 19:04:34.931
+!MESSAGE To: com.amazonaws.eclipse.datatools.enablement.simpledb.ui [1.0.0.v201401171526]

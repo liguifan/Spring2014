@@ -1,0 +1,58 @@
+package linked_list;
+
+import datastructure.ListNode;
+
+public class insertion_sort_list {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			ListNode test=new ListNode(Integer.MIN_VALUE);
+			ListNode head=test.next;
+			test.next=new listNode(5);
+			test=test.next;
+			test.next=new listNode(3);
+			test=test.next;
+	}
+
+
+
+	public static ListNode insertion_sort(ListNode s){
+		if(s.next==null)	return s;
+
+		ListNode prev=new ListNode(Integer.MIN_VALUE);
+		ListNode curr=new ListNode(Integer.MIN_VALUE);
+		ListNode first=new ListNode(Integer.MIN_VALUE);
+		ListNode head=s;
+		
+		first.next=s;
+		prev=s;
+		curr=s.next;
+		
+		while(curr!=null){
+			if(curr.val<prev.val){
+
+				while(first.next!=null && first.val<curr.val){
+					if(first.next.val>curr.val){
+						break;
+					}
+					first=first.next;
+				}
+
+				prev.next=curr.next;
+				ListNode temp=new ListNode(curr.val);
+				temp.next=first.next;
+				first.next=temp;
+				curr=prev.next;
+
+			}
+
+			if(curr.val>=prev.val){
+				prev=prev.next;
+				curr=curr.next;
+			}
+		}
+
+		return head;
+	}
+
+}

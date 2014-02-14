@@ -1,0 +1,55 @@
+package binary_tree;
+
+import datastructure.ListNode;
+
+public class convert_sorted_list_to_binary_search_tree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ListNode test=new ListNode(Integer.MIN_VALUE);
+		ListNode head=test;
+		test.next=new ListNode(4);
+		test=test.next;
+		test.next=new ListNode(19);
+		test=test.next;
+		test.next=new ListNode(14);
+		test=test.next;
+		test.next=new ListNode(5);
+		test=test.next;
+		test.next=new ListNode(-3);
+		test=test.next;
+		test.next=new ListNode(1);
+		test=test.next;
+		test.next=new ListNode(3);
+		
+		
+		
+		ListNode mid=find_link_list_mid(head);
+		System.out.println(mid.val);
+	}
+	
+	
+	
+	
+	
+	public static ListNode find_link_list_mid(ListNode head){
+		ListNode fast=head;
+		ListNode slow=head;
+		
+		while(fast!=null && fast.next!=null){
+			slow=slow.next;
+			fast=fast.next.next;
+		}
+		
+		if(fast!=null){
+			slow=slow.next;
+		}
+		
+		return slow;
+		
+		
+		
+		
+	}
+
+}

@@ -6,16 +6,15 @@ public class search_for_a_range {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int[] a={1,2,3,4,4,4,5};
+		int[] a={3,3,3};
 		int[] r=new int[2];
-		r=search(a, 4);
+		r=search(a, 3);
 		System.out.println(r[0]+" and "+r[1]);
 	}
 	
 	
 	
 	public static int[] search(int[] A, int target){
-		ArrayList<Integer> pocket=new ArrayList<Integer>();
 		int low=0;
 		int high=A.length-1;
 		int[] range={-1,-1};

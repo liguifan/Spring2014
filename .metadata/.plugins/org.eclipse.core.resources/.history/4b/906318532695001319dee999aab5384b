@@ -1,0 +1,87 @@
+package binary_tree;
+
+import datastructure.ListNode;
+import datastructure.TNode;
+
+public class convert_sorted_list_to_binary_search_tree {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ListNode test=new ListNode(Integer.MIN_VALUE);
+		ListNode head=test;
+		test.next=new ListNode(1);
+		test=test.next;
+		test.next=new ListNode(2);
+		test=test.next;
+//		test.next=new ListNode(3);
+//		test=test.next;
+//		test.next=new ListNode(4);
+//		test=test.next;
+//		test.next=new ListNode(5);
+//		test=test.next;
+//		test.next=new ListNode(6);
+//		test=test.next;
+//		test.next=new ListNode(7);
+		
+		TNode<Integer> 	root=null;
+		build_tree(head, root);
+		
+		
+	
+	}
+	
+	
+	public static void build_tree(ListNode head, TNode<Integer> root){
+		ListNode left=head;
+		ListNode slow=head;
+		ListNode fast=head;
+		
+		if(head==null)
+			return;
+		
+		while(fast!=null && fast.next!=null){
+			slow=slow.next;
+			fast=fast.next.next;
+		}
+		if(fast!=null){
+			slow=slow.next;
+		}
+		root=new TNode<Integer>(slow.val);
+		
+		build_tree(left,root.left);
+		build_tree(slow.next,root.right);
+	}
+	public static void build_tree(ListNode head,int start,int end){
+		if(start> end)
+			return ;
+		
+		int mid=(start+end)/2;
+		
+		while(int i=0;i<mid;i++){
+			temp=temp.next;
+		}
+		
+	}
+	
+	
+	
+	
+	public static ListNode find_link_list_mid(ListNode head){
+		ListNode fast=head;
+		ListNode slow=head;
+		
+		while(fast!=null && fast.next!=null){
+			slow=slow.next;
+			fast=fast.next.next;
+		}
+		
+		if(fast!=null){
+			slow=slow.next;
+		}
+		return slow;
+	}
+	
+	
+	
+
+}
