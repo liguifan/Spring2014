@@ -1,0 +1,28 @@
+package others;
+
+public class regular_expression_matching {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	public static boolean is_matching(String s, String p){
+		
+		if(p.length()==0) return s.length()==0;
+		
+		if(p.length()==1){
+			if(s.length()!=1 || p.charAt(0)!=s.charAt(0) && p.charAt(0)!=".")
+				return true;
+			else
+				return false;
+		}
+		
+		if(s.charAt(0)==p.charAt(0))
+		
+		
+		
+	}
+
+}
