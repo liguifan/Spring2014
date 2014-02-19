@@ -17,6 +17,9 @@
  * 
  * 
  */
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -27,6 +30,11 @@ import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2Client;
+import com.amazonaws.services.ec2.model.AuthorizeSecurityGroupIngressRequest;
+import com.amazonaws.services.ec2.model.CreateKeyPairRequest;
+import com.amazonaws.services.ec2.model.CreateKeyPairResult;
+import com.amazonaws.services.ec2.model.CreateSecurityGroupRequest;
+import com.amazonaws.services.ec2.model.CreateSecurityGroupResult;
 import com.amazonaws.services.ec2.model.CreateTagsRequest;
 import com.amazonaws.services.ec2.model.DescribeAvailabilityZonesResult;
 import com.amazonaws.services.ec2.model.DescribeImagesResult;
@@ -35,6 +43,8 @@ import com.amazonaws.services.ec2.model.DescribeKeyPairsResult;
 import com.amazonaws.services.ec2.model.Image;
 import com.amazonaws.services.ec2.model.Instance;
 import com.amazonaws.services.ec2.model.InstanceState;
+import com.amazonaws.services.ec2.model.IpPermission;
+import com.amazonaws.services.ec2.model.KeyPair;
 import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.RunInstancesRequest;
 import com.amazonaws.services.ec2.model.RunInstancesResult;
@@ -54,10 +64,46 @@ public class AwsSample {
      */
 
     static AmazonEC2      ec2;
-
+    final static String security_group="Guifan_security_group";
+    final static String key_pair="liguifan";
+    public static void SecurityGroup()
+    {
+ 	    	try {
+ 	    		CreateSecurityGroupRequest createSecurityGroupRequest = 
+ 	       			new CreateSecurityGroupRequest();
+ 	    		createSecurityGroupRequest.withGroupName(security_group).withDescription("tt");
+ 	    		CreateSecurityGroupResult createSecurityGroupResult = 
+ 	       			  ec2.createSecurityGroup(createSecurityGroupRequest);
+ 	    	} catch (AmazonServiceException ase) {
+ 	    		System.out.println(ase.getMessage());
+ 	    	}
+    }
+    
+    
+    public static void CreateKeyPair(){
+    	try{
+    	CreateKeyPairRequest createKeyPairRequest = 
+    			new CreateKeyPairRequest();    	
+    	createKeyPairRequest.withKeyName(key_pair);	
+    	CreateKeyPairResult createKeyPairResult = 
+    				ec2.createKeyPair(createKeyPairRequest);
+    	KeyPair keyPair = new KeyPair();
+    	keyPair = createKeyPairResult.getKeyPair();
+    	String privateKey = keyPair.getKeyMaterial();
+    	System.out.println(privateKey);
+    	
+    	} catch (AmazonServiceException ase) {
+	    		System.out.println(ase.getMessage());
+	    	}
+    }
+    
+    
     public static void main(String[] args) throws Exception {
 
-
+    	 
+    	 
+    	 
+    	
     	 AWSCredentials credentials = new PropertiesCredentials(
     			 AwsSample.class.getResourceAsStream("AwsCredentials.properties"));
 
@@ -68,9 +114,61 @@ public class AwsSample {
           *********************************************/
     	 System.out.println("#1 Create Amazon Client object");
          ec2 = new AmazonEC2Client(credentials);
-
          
+         
+         	SecurityGroup();
+	    	CreateKeyPair();
+	    	
+	    	String ipAddr = "0.0.0.0/0";
+
+	    	// Get the IP of the current host, so that we can limit the Security Group
+	    	// by default to the ip range associated with your subnet.
+	    	try {
+	    	    InetAddress addr = InetAddress.getLocalHost();
+
+	    	    // Get IP Address
+	    	    ipAddr = addr.getHostAddress()+"/10";
+	    	} catch (UnknownHostException e) {
+	    	}
+
+	    	//System.exit(-1);
+	    	// Create a range that you would like to populate.
+	    	ArrayList<String> ipRanges = new ArrayList<String>();
+	    	ipRanges.add(ipAddr);
+
+	    	// Open up port 23 for TCP traffic to the associated IP from above (e.g. ssh traffic).
+	    	ArrayList<IpPermission> ipPermissions = new ArrayList<IpPermission> ();
+	    	
+	    	IpPermission ipPermission = new IpPermission();
+	    	ipPermission.setIpProtocol("tcp");
+	    	ipPermission.setFromPort(new Integer(22));
+	    	ipPermission.setToPort(new Integer(22));
+	    	ipPermission.setIpRanges(ipRanges);
+	    	ipPermissions.add(ipPermission);
+
+	    	IpPermission ipPermission2 = new IpPermission();
+	    	ipPermission2.setIpProtocol("tcp");
+	    	ipPermission2.setFromPort(new Integer(80));
+	    	ipPermission2.setToPort(new Integer(80));
+	    	ipPermission2.setIpRanges(ipRanges);
+	    	
+	    	ipPermissions.add(ipPermission2);
+	    	
+	    	
+	    	try {
+		    	// Authorize the ports to the used.
+		    	AuthorizeSecurityGroupIngressRequest ingressRequest = new AuthorizeSecurityGroupIngressRequest(security_group,ipPermissions);
+		    	ec2.authorizeSecurityGroupIngress(ingressRequest);
+	    	} catch (AmazonServiceException ase) {
+	    		// Ignore because this likely means the zone has already been authorized.
+	    		System.out.println(ase.getMessage());
+	    	}
+	
        
+	    	
+	    	
+	    	
+	    	
         try {
         	
         	/*********************************************
