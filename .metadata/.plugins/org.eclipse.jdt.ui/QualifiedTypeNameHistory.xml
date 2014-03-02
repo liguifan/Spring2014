@@ -28,4 +28,12 @@
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="datastructure.ListNode"/>
 <fullyQualifiedTypeName name="datastructure.TreeNode"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.CreateSecurityGroupRequest"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.CreateSecurityGroupResult"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.CreateKeyPairRequest"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.CreateKeyPairResult"/>
+<fullyQualifiedTypeName name="java.security.KeyPair"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.dynamodb.datamodeling.KeyPair"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.model.KeyPair"/>
+<fullyQualifiedTypeName name="com.amazonaws.services.ec2.AmazonEC2"/>
 </qualifiedTypeNameHistroy>

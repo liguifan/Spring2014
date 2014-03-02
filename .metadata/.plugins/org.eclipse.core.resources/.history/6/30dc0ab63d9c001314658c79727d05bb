@@ -1,0 +1,38 @@
+//============================================================================
+// Name        : TestC.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iterator>
+
+
+using namespace std;
+double* update_theta_square_loss(double*);
+
+int main() {
+	string new_str="234";
+	string delimiter=":";
+	string token1 = new_str.substr(0, new_str.find(delimiter));
+	string token2 = new_str.substr(new_str.find(delimiter)+1,new_str.length());
+	cout<<token1<<"   "<<token2<<endl;
+
+
+	std::cout << '"' << s << '"' << '\n';
+
+		double x[3]={1,2,3};
+		update_theta_square_loss(x);
+		cout<< x[1]<<endl;
+}
+double* update_theta_square_loss(double (&theta)[]){
+
+		theta[1]=5;
+		theta[2]=6;
+		return theta;
+	}

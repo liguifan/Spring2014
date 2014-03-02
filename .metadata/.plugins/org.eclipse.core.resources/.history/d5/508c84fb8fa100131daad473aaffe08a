@@ -1,0 +1,5 @@
+package Bucket;
+
+public class S3BucketManager {
+
+}

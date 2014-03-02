@@ -1,0 +1,24 @@
+package Bucket;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
+import com.amazonaws.services.s3.AmazonS3Client;
+
+public class S3_test1 {
+
+	public static void main(String[] args) {
+		final String PATH = "/Users/liguifan/Desktop/music/taomagan.mp3";             
+	
+		File song = new File(arguments[0]); 
+		10:             FileInputStream file = new FileInputStream(song); 
+		11:             File trashedSong = new File("trashed.mp3"); 
+		12:             FileOutputStream trash = new FileOutputStream(trashedSong); 
+	
+	
+	}
+
+}

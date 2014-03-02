@@ -1,0 +1,2104 @@
+20:11:18 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+20:11:24 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:38:31 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:62:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:62:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:83:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:83:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:39:25 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:62:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:62:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:84:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:84:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:40:15 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:62:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:62:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:64:31: warning: adding 'int' to a string does not append to the string [-Wstring-plus-int]
+                                cout<< temp.index +" is "+temp.value<<endl;
+                                       ~~~~~~~~~~~^~~~~~~
+../src/Study.cpp:64:31: note: use array indexing to silence this warning
+../src/Study.cpp:64:38: error: invalid operands to binary expression ('const char *' and 'double')
+                                cout<< temp.index +" is "+temp.value<<endl;
+                                       ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
+../src/Study.cpp:84:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:84:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+11 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+12:41:47 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:62:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:62:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:84:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:84:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:41:48 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:41:52 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:42:28 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:63:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:63:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:85:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:85:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:42:29 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:42:32 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:43:05 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:64:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:64:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:86:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:86:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:43:25 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:43:26 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:43:31 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:43:31 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:44:19 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:65:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:65:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:87:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:87:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:45:07 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:63:34: error: invalid operands to binary expression ('istream_iterator<string>' and 'int')
+                 vector<string> tokens(beg, end-1);
+                                            ~~~^~
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1/iterator:605:1: note: candidate template ignored: failed template argument deduction
+operator-(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1/iterator:1000:1: note: candidate template ignored: failed template argument deduction
+operator-(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y)
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1/iterator:1345:1: note: candidate template ignored: failed template argument deduction
+operator-(const __wrap_iter<_Iter1>& __x, const __wrap_iter<_Iter2>& __y) _NOEXCEPT
+^
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1/string:480:11: note: candidate template ignored: failed template argument deduction
+streamoff operator-(const fpos<_StateT>& __x, const fpos<_StateT>& __y)
+          ^
+../src/Study.cpp:65:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:65:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:87:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:87:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+12:45:14 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:65:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:65:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:87:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:87:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:45:16 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:45:45 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:65:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:65:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:88:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:88:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:46:00 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:65:8: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                     ^
+../src/Study.cpp:65:15: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(auto& s: tokens){
+                            ^
+../src/Study.cpp:88:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:88:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+10 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:46:29 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:65:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:88:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:88:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+9 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:46:30 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:46:34 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:47:00 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:30:18: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+            for(string s: tokens)
+                        ^
+1 warning generated.
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+12:48:08 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:73:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:96:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:96:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+9 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:48:10 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+12:48:15 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+12:48:54 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'counter' [-Wunused-variable]
+         int counter=0;
+             ^
+../src/Study.cpp:29:13: warning: unused variable 'MAX_ITER' [-Wunused-variable]
+         const int MAX_ITER=8000;
+                   ^
+../src/Study.cpp:30:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:34:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:38:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:65:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:88:6: warning: 'auto' type specifier is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+            ^
+../src/Study.cpp:88:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(auto& x:X){
+                   ^
+9 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+12:55:04 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+12:56:34 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+22:47:35 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:47:36 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:34:3: error: use of undeclared identifier 'update_theta_square_loss'
+                update_theta_square_loss(x);
+                ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:48:00 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:48:01 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:35:3: error: no matching function for call to 'update_theta_square_loss'
+                update_theta_square_loss(x);
+                ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/TestC.cpp:17:9: note: candidate function not viable: no known conversion from 'double [3]' to 'double (&)[]' for 1st argument
+double* update_theta_square_loss(double (&theta)[]);
+        ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:49:48 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:49:49 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:35:3: error: no matching function for call to 'update_theta_square_loss'
+                update_theta_square_loss(x);
+                ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/TestC.cpp:17:9: note: candidate function not viable: no known conversion from 'double [3]' to 'double (&)[]' for 1st argument
+double* update_theta_square_loss(double (&theta)[]);
+        ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:49:58 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:49:59 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:35:3: error: no matching function for call to 'update_theta_square_loss'
+                update_theta_square_loss(x[3]);
+                ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/TestC.cpp:17:9: note: candidate function not viable: no known conversion from 'double' to 'double (&)[]' for 1st argument
+double* update_theta_square_loss(double (&theta)[]);
+        ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:50:12 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:50:13 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:35:3: error: no matching function for call to 'update_theta_square_loss'
+                update_theta_square_loss(x);
+                ^~~~~~~~~~~~~~~~~~~~~~~~
+../src/TestC.cpp:17:9: note: candidate function not viable: no known conversion from 'double [3]' to 'double (&)[]' for 1st argument
+double* update_theta_square_loss(double (&theta)[]);
+        ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:50:43 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:50:44 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:27:22: error: use of undeclared identifier 's'
+        std::cout << '"' << s << '"' << '\n';
+                            ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:50:51 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:50:52 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:27:22: error: use of undeclared identifier 's'
+        std::cout << '"' << s << '"' << '\n';
+                            ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+22:51:08 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Undefined symbols for architecture x86_64:
+  "update_theta_square_loss(double*)", referenced from:
+      _main in TestC.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [TestC] Error 1
+22:51:17 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+22:51:18 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Undefined symbols for architecture x86_64:
+  "update_theta_square_loss(double*)", referenced from:
+      _main in TestC.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [TestC] Error 1
+22:51:22 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Undefined symbols for architecture x86_64:
+  "update_theta_square_loss(double*)", referenced from:
+      _main in TestC.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [TestC] Error 1
+22:58:52 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+23:01:28 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+23:02:03 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+23:02:04 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+23:02:59 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+23:03:12 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+23:03:13 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+23:03:18 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:25: error: type 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') does not provide a call operator
+                 int y_original=(int) tempstr(0)-48;
+                                      ^~~~~~~
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+23:03:20 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+23:03:32 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:51:19: error: cannot convert 'string' (aka 'basic_string<char, char_traits<char>, allocator<char> >') to 'int' without a conversion operator
+                 int y_original=(int) tempstr,at(0)-48;
+                                ^~~~~~~~~~~~~
+../src/Study.cpp:51:38: error: expected ';' at end of declaration
+                 int y_original=(int) tempstr,at(0)-48;
+                                                   ^
+                                                   ;
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+4 warnings and 2 errors generated.
+make: *** [src/Study.o] Error 1
+23:03:33 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+23:04:02 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:33:10: warning: unused variable 'theta' [-Wunused-variable]
+         double theta[len];
+                ^
+../src/Study.cpp:37:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:32:7: warning: unused variable 'n' [-Wunused-variable]
+         int n=0;
+             ^
+../src/Study.cpp:29:16: warning: unused variable 'learning_rate' [-Wunused-variable]
+         const double learning_rate=0.1;
+                      ^
+../src/Study.cpp:76:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:99:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:117:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:125:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+8 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+23:04:04 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:53:42 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:61:69: error: no member named 'get' in 'std::__1::vector<int, std::__1::allocator<int> >'
+                                 theta=update_theta_logistic_loss(theta,len,learning_rate,y_set.get(n),alldata.get(n));
+                                                                                          ~~~~~ ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+5 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+13:53:51 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:61:69: error: no member named 'get' in 'std::__1::vector<int, std::__1::allocator<int> >'
+                                 theta=update_theta_logistic_loss(theta,len,learning_rate,y_set.get(n),alldata.get(n));
+                                                                                          ~~~~~ ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+5 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+13:53:52 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:55:45 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:61:11: error: array type 'double [50000]' is not assignable
+                                 theta=update_theta_logistic_loss(theta,len,learning_rate,y_set.at(n),alldata.at(n));
+                                 ~~~~~^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+5 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+13:55:46 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:56:36 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:38:10: error: array initializer must be an initializer list
+         double theta[len]=0;
+                ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+5 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+13:56:37 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:56:47 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:61:11: error: array type 'double [50000]' is not assignable
+                                 theta=update_theta_logistic_loss(theta,len,learning_rate,y_set.at(n),alldata.at(n));
+                                 ~~~~~^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+5 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+13:58:30 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:132:2: error: void function 'update_theta_square_loss' should not return a value [-Wreturn-type]
+        return theta;
+        ^      ~~~~~
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+../src/Study.cpp:141:3: error: void function 'update_theta_logistic_loss' should not return a value [-Wreturn-type]
+                return theta;
+                ^      ~~~~~
+6 warnings and 2 errors generated.
+make: *** [src/Study.o] Error 1
+13:58:31 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:58:47 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:132:2: error: void function 'update_theta_square_loss' should not return a value [-Wreturn-type]
+        return theta;
+        ^      ~~~~~
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings and 1 error generated.
+make: *** [src/Study.o] Error 1
+13:58:48 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:59:12 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:137:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+13:59:14 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+13:59:20 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+14:00:23 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:137:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:00:56 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:102:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:120:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:128:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:136:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:02:07 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:79:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:101:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:119:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:127:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:135:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:02:53 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:79:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:101:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:119:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:127:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:135:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:03:13 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:102:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:120:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:128:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:136:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:03:33 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:102:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:120:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:128:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:136:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:05:05 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+14:05:25 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:80:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:102:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:120:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:128:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:136:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:08:07 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:81:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:137:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:08:18 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+14:08:34 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+14:08:53 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:82:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:104:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:122:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:130:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:09:24 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:82:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:104:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:122:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:130:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:09:37 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:82:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:104:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:122:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:130:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:17:35 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+14:21:56 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:81:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:137:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:22:34 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:81:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:137:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:25:57 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:81:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:103:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:121:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:129:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:137:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+14:29:12 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:79:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:101:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:119:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:127:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:135:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+6 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+15:07:12 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:29:6: error: functions that differ only in their return type cannot be overloaded
+void update_theta_square_loss(double theta[],int size){
+     ^
+../src/TestC.cpp:17:9: note: previous declaration is here
+double* update_theta_square_loss(double theta[],int size);
+        ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:22 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:26:12: error: cannot initialize a variable of type 'double *' with an rvalue of type 'void'
+                double * y=update_theta_square_loss(x,3);
+                         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:25 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+15:07:25 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:26:12: error: cannot initialize a variable of type 'double *' with an rvalue of type 'void'
+                double * y=update_theta_square_loss(x,3);
+                         ^ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:33 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+15:07:33 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:27:10: error: use of undeclared identifier 'y'
+                cout<< y[1]<<endl;
+                       ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:36 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:27:10: error: use of undeclared identifier 'y'
+                cout<< y[1]<<endl;
+                       ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:46 **** Incremental Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+15:07:46 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:27:10: error: use of undeclared identifier 'theta'
+                cout<< theta[1]<<endl;
+                       ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:50 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:27:10: error: use of undeclared identifier 'theta'
+                cout<< theta[1]<<endl;
+                       ^
+1 error generated.
+make: *** [src/TestC.o] Error 1
+15:07:58 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+15:13:18 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+15:13:40 **** Incremental Build of configuration Debug for project TestC ****
+make all 
+Building file: ../src/TestC.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/TestC.d" -MT"src/TestC.d" -o "src/TestC.o" "../src/TestC.cpp"
+../src/TestC.cpp:35:10: warning: unused variable 'b' [-Wunused-variable]
+                double b=3.4;
+                       ^
+../src/TestC.cpp:34:10: warning: unused variable 'a' [-Wunused-variable]
+                double a=4.3;
+                       ^
+2 warnings generated.
+Finished building: ../src/TestC.cpp
+ 
+Building target: TestC
+Invoking: MacOS X C++ Linker
+g++  -o "TestC"  ./src/TestC.o   
+Finished building target: TestC
+ 
+15:51:35 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:71:50: warning: format specifies type 'int' but the argument has type 'clock_t' (aka 'unsigned long') [-Wformat]
+         printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
+                             ~~                         ^
+                             %lu
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:82:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:104:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:122:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:130:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+7 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+15:51:50 **** Incremental Build of configuration Debug for project Study ****
+make all 
+Building file: ../src/Study.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Study.d" -MT"src/Study.d" -o "src/Study.o" "../src/Study.cpp"
+../src/Study.cpp:71:50: warning: format specifies type 'int' but the argument has type 'clock_t' (aka 'unsigned long') [-Wformat]
+         printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
+                             ~~                         ^
+                             %lu
+../src/Study.cpp:42:7: warning: unused variable 'x' [-Wunused-variable]
+         int x = rand()%SAMPLE_SIZE+1;
+             ^
+../src/Study.cpp:82:16: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                 for(string s: tokens){
+                             ^
+../src/Study.cpp:104:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:X){
+                   ^
+../src/Study.cpp:122:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:tuple){
+                   ^
+../src/Study.cpp:130:13: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+        for(Tuple x:path){
+                   ^
+../src/Study.cpp:138:14: warning: range-based for loop is a C++11 extension [-Wc++11-extensions]
+                for(Tuple x:path){
+                           ^
+7 warnings generated.
+Finished building: ../src/Study.cpp
+ 
+Building target: Study
+Invoking: MacOS X C++ Linker
+g++  -o "Study"  ./src/Study.o   
+Finished building target: Study
+ 
+16:12:34 **** Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+16:12:36 **** Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+17:05:37 **** Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+17:05:37 **** Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.
+17:05:48 **** Build of configuration Debug for project Study ****
+make all 
+make: Nothing to be done for `all'.
+17:05:48 **** Build of configuration Debug for project TestC ****
+make all 
+make: Nothing to be done for `all'.

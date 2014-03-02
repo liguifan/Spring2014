@@ -1,0 +1,108 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.security.Timestamp;
+import java.util.UUID;
+
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
+import com.amazonaws.regions.Region;
+import com.amazonaws.regions.Regions;
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.AmazonS3Client;
+import com.amazonaws.services.s3.model.Bucket;
+import com.amazonaws.services.s3.model.CannedAccessControlList;
+import com.amazonaws.services.s3.model.GetObjectRequest;
+import com.amazonaws.services.s3.model.ListObjectsRequest;
+import com.amazonaws.services.s3.model.ObjectListing;
+import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.amazonaws.services.s3.model.S3Object;
+import com.amazonaws.services.s3.model.S3ObjectSummary;
+public class S3Sample {
+
+    public static void main(String[] args) throws IOException {
+       
+       
+    }
+
+    public static String create_bucket_upload() throws IOException{
+    	AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
+ 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
+ 		s3.setRegion(usWest2);
+
+         String bucketName = "liguifan343";
+         //+ UUID.randomUUID();
+         String key = "Music1";
+
+             System.out.println("Creating bucket " + bucketName + "\n");
+             s3.createBucket(bucketName);
+             System.out.println("Listing buckets");
+            
+             System.out.println();
+
+             
+             System.out.println("Uploading a new object to S3 from a file\n");
+//             s3.putObject(new PutObjectRequest(bucketName, key, createSampleFile()));
+             s3.putObject(new PutObjectRequest(bucketName, key, new File("/Users/liguifan/Desktop/music/first.jpg")).withCannedAcl(CannedAccessControlList.PublicRead));
+             
+             System.out.println("Listing objects");
+             ObjectListing objectListing = s3.listObjects(new ListObjectsRequest()
+                     .withBucketName(bucketName)
+                     .withPrefix("My"));
+             for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+                 System.out.println(" - " + objectSummary.getKey() + "  " +
+                                    "(size = " + objectSummary.getSize() + ")");
+             }
+             System.out.println();
+
+         
+            
+            
+        String url_link="https://s3-us-west-2.amazonaws.com"+"/"+bucketName+"/"+key;
+    	return "insert into video_info values("+key+","+url_link+")";
+    }
+    
+    
+    
+    
+    private static File createSampleFile() throws IOException {
+    	
+    	final String PATH = "/Users/liguifan/Desktop/music/10009.avi"; 
+        File song = new File(PATH); 
+//	    FileInputStream file1 = new FileInputStream(song); 
+//	    
+//		File trashedSong = new File("trashed.mp3"); 
+//		FileOutputStream trash1 = new FileOutputStream(trashedSong); 
+//		
+//		System.out.println("done");
+		
+        return song;
+    }
+
+    /**
+     * Displays the contents of the specified input stream as text.
+     *
+     * @param input
+     *            The input stream to display as text.
+     *
+     * @throws IOException
+     */
+    private static void displayTextInputStream(InputStream input) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) break;
+
+            System.out.println("    " + line);
+        }
+        System.out.println();
+    }
+
+}

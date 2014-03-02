@@ -17,6 +17,9 @@
  * 
  * 
  */
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -77,10 +80,43 @@ public class AwsSample {
  	    	} catch (AmazonServiceException ase) {
  	    		System.out.println(ase.getMessage());
  	    	}
+ 	    	
+ 	    	
+ 	    	String ipAddr = "0.0.0.0/0";
+	    	
+
+	    	//System.exit(-1);
+	    	// Create a range that you would like to populate.
+	    	ArrayList<String> ipRanges = new ArrayList<String>();
+	    	ipRanges.add(ipAddr);
+	    	// Open up port 23 for TCP traffic to the associated IP from above (e.g. ssh traffic).
+	    	ArrayList<IpPermission> ipPermissions = new ArrayList<IpPermission> ();
+	    	IpPermission ipPermission = new IpPermission();
+	    	ipPermission.setIpProtocol("tcp");
+	    	ipPermission.setFromPort(new Integer(22));
+	    	ipPermission.setToPort(new Integer(22));
+	    	ipPermission.setIpRanges(ipRanges);
+	    	ipPermissions.add(ipPermission);
+
+	    	IpPermission ipPermission2 = new IpPermission();
+	    	ipPermission2.setIpProtocol("tcp");
+	    	ipPermission2.setFromPort(new Integer(80));
+	    	ipPermission2.setToPort(new Integer(80));
+	    	ipPermission2.setIpRanges(ipRanges);
+	    	ipPermissions.add(ipPermission2);
+	    	
+	    	try {
+		    	// Authorize the ports to the used.
+		    	AuthorizeSecurityGroupIngressRequest ingressRequest = new AuthorizeSecurityGroupIngressRequest(security_group,ipPermissions);
+		    	ec2.authorizeSecurityGroupIngress(ingressRequest);
+	    	} catch (AmazonServiceException ase) {
+	    		// Ignore because this likely means the zone has already been authorized.
+	    		System.out.println(ase.getMessage());
+	    	}
     }
     
     
-    public static void CreateKeyPair(){
+    public static void CreateKeyPair() throws IOException{
     	try{
     	CreateKeyPairRequest createKeyPairRequest = 
     			new CreateKeyPairRequest();    	
@@ -91,6 +127,11 @@ public class AwsSample {
     	keyPair = createKeyPairResult.getKeyPair();
     	String privateKey = keyPair.getKeyMaterial();
     	System.out.println(privateKey);
+    	BufferedWriter bw = new BufferedWriter(new FileWriter("/Users/liguifan/Desktop/liguifan.pem", true));
+        bw.write(privateKey);
+        bw.write(" ");
+        bw.flush();
+        bw.close();
     	
     	} catch (AmazonServiceException ase) {
 	    		System.out.println(ase.getMessage());
@@ -116,53 +157,6 @@ public class AwsSample {
          ec2 = new AmazonEC2Client(credentials);
          
          
-         	SecurityGroup();
-	    	CreateKeyPair();
-	    	
-	    	String ipAddr = "0.0.0.0/0";
-
-	    	// Get the IP of the current host, so that we can limit the Security Group
-	    	// by default to the ip range associated with your subnet.
-	    	try {
-	    	    InetAddress addr = InetAddress.getLocalHost();
-
-	    	    // Get IP Address
-	    	    ipAddr = addr.getHostAddress()+"/10";
-	    	} catch (UnknownHostException e) {
-	    	}
-
-	    	//System.exit(-1);
-	    	// Create a range that you would like to populate.
-	    	ArrayList<String> ipRanges = new ArrayList<String>();
-	    	ipRanges.add(ipAddr);
-
-	    	// Open up port 23 for TCP traffic to the associated IP from above (e.g. ssh traffic).
-	    	ArrayList<IpPermission> ipPermissions = new ArrayList<IpPermission> ();
-	    	
-	    	IpPermission ipPermission = new IpPermission();
-	    	ipPermission.setIpProtocol("tcp");
-	    	ipPermission.setFromPort(new Integer(22));
-	    	ipPermission.setToPort(new Integer(22));
-	    	ipPermission.setIpRanges(ipRanges);
-	    	ipPermissions.add(ipPermission);
-
-	    	IpPermission ipPermission2 = new IpPermission();
-	    	ipPermission2.setIpProtocol("tcp");
-	    	ipPermission2.setFromPort(new Integer(80));
-	    	ipPermission2.setToPort(new Integer(80));
-	    	ipPermission2.setIpRanges(ipRanges);
-	    	
-	    	ipPermissions.add(ipPermission2);
-	    	
-	    	
-	    	try {
-		    	// Authorize the ports to the used.
-		    	AuthorizeSecurityGroupIngressRequest ingressRequest = new AuthorizeSecurityGroupIngressRequest(security_group,ipPermissions);
-		    	ec2.authorizeSecurityGroupIngress(ingressRequest);
-	    	} catch (AmazonServiceException ase) {
-	    		// Ignore because this likely means the zone has already been authorized.
-	    		System.out.println(ase.getMessage());
-	    	}
 	
        
 	    	
@@ -206,7 +200,39 @@ public class AwsSample {
              *  #5 Describe Current Instances
              *  
              *********************************************/
+            
+
+            SecurityGroup();
+	    	CreateKeyPair();
+	    	
+	    	/*********************************************
+             * 
+             *  #6 Create an Instance
+             *  
+             *********************************************/
+            System.out.println("#5 Create an Instance");
+            String imageId = "ami-76f0061f"; //Basic 32-bit Amazon Linux AMI
+            int minInstanceCount = 1; // create 1 instance
+            int maxInstanceCount = 1;
+            RunInstancesRequest rir = new RunInstancesRequest();
+            
+            rir.withImageId(imageId).withMinCount(minInstanceCount).withMaxCount(maxInstanceCount).withKeyName(key_pair).withSecurityGroups(security_group);
+            RunInstancesResult result = ec2.runInstances(rir);
+            
+            //get instanceId from the result
+            List<Instance> resultInstance = result.getReservation().getInstances();
+            String createdInstanceId = null;
+            
+            
+            for (Instance ins : resultInstance){
+            	createdInstanceId = ins.getInstanceId();
+            	System.out.println("New instance has been created: "+ins.getInstanceId());
+            }
+	    	
             System.out.println("#4 Describe Current Instances");
+            
+            boolean mm=true;
+            do{
             DescribeInstancesResult describeInstancesRequest = ec2.describeInstances();
             List<Reservation> reservations = describeInstancesRequest.getReservations();
             Set<Instance> instances = new HashSet<Instance>();
@@ -216,37 +242,30 @@ public class AwsSample {
             }
             
             System.out.println("You have " + instances.size() + " Amazon EC2 instance(s).");
+//            for (Instance ins : instances){
+// 
+//            	String instanceId = ins.getInstanceId();
+//            	// instance state
+//            	InstanceState is = ins.getState();
+//            	System.out.println(instanceId+" "+is.getName());
+//
+//            }
+           
+            
             for (Instance ins : instances){
-            	
             	// instance id
             	String instanceId = ins.getInstanceId();
-            	
-            	// instance state
-            	InstanceState is = ins.getState();
-            	System.out.println(instanceId+" "+is.getName());
+            	if(instanceId.equals(createdInstanceId)){
+            		System.out.println("********************************");
+            			if(ins.getState().getName().equals("running")){
+            				mm=false;
+            				System.out.println("IP address is: "+ins.getPublicIpAddress());
+            			}
+            			Thread.sleep(3000);
+            	}
             }
-            
-            /*********************************************
-             * 
-             *  #6 Create an Instance
-             *  
-             *********************************************/
-            System.out.println("#5 Create an Instance");
-            String imageId = "ami-76f0061f"; //Basic 32-bit Amazon Linux AMI
-            int minInstanceCount = 1; // create 1 instance
-            int maxInstanceCount = 1;
-            RunInstancesRequest rir = new RunInstancesRequest(imageId, minInstanceCount, maxInstanceCount);
-            RunInstancesResult result = ec2.runInstances(rir);
-            
-            //get instanceId from the result
-            List<Instance> resultInstance = result.getReservation().getInstances();
-            String createdInstanceId = null;
-            for (Instance ins : resultInstance){
-            	createdInstanceId = ins.getInstanceId();
-            	System.out.println("New instance has been created: "+ins.getInstanceId());
-            }
-            
-            
+            }while(mm);
+     
             /*********************************************
              * 
              *  #7 Create a 'tag' for the new instance.
@@ -264,7 +283,13 @@ public class AwsSample {
             ec2.createTags(ctr);
             
             
-                        
+            /*********************************************/
+            
+
+         	
+	    	
+	    	
+	    	
             /*********************************************
              * 
              *  #8 Stop/Start an Instance

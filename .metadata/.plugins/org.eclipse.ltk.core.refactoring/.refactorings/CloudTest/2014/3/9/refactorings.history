@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;WorkerServlet.java&apos; to &apos;MyAws/src&apos;&#x0A;- Original project: &apos;CloudTest&apos;&#x0A;- Destination element: &apos;MyAws/src&apos;&#x0A;- Original element: &apos;WorkerServlet.java&apos;" description="Copy compilation unit" destination="=MyAws/src" element1="/src&lt;{WorkerServlet.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1393712372430" units="1" version="1.0"/>
+</session>

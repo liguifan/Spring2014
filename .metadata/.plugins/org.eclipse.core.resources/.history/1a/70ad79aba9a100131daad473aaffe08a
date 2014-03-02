@@ -1,0 +1,15 @@
+package Bucket;
+
+import java.io.File;
+
+import com.amazonaws.services.s3.AmazonS3Client;
+
+public class S3_test1 {
+
+	public static void main(String[] args) {
+		final String PATH = "C:\\Users\\bbrown\\Downloads\\swing-hacks-examples-20060109\\Ch10-Audio\\75\\soundcloud2.mp3";             
+        final File file = new File(PATH);
+        final AudioInputStream in = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
+	}
+
+}

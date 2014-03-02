@@ -1,0 +1,19 @@
+package Bucket;
+
+import java.io.BufferedInputStream;
+import java.io.File;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+
+import com.amazonaws.services.s3.AmazonS3Client;
+
+public class S3_test1 {
+
+	public static void main(String[] args) {
+		final String PATH = "/Users/liguifan/Desktop/music/rcv1-train.vw";             
+        final File file = new File(PATH);
+        final AudioInputStream in = AudioSystem.getAudioInputStream(new BufferedInputStream(new FileInputStream(file)));
+	}
+
+}

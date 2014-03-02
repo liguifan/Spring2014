@@ -1,0 +1,15 @@
+package Bucket;
+
+import com.amazonaws.services.s3.AmazonS3Client;
+
+public class S3_test1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		AmazonS3Client s3= new AmazonS3Client();
+		S3BucketManager a=new S3BucketManager(s3, "liguifan");
+		
+		a.createBucket();
+	}
+
+}
