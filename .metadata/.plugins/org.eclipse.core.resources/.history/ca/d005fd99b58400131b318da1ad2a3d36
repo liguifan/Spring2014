@@ -1,6 +1,0 @@
-package datastructure;
-
-public class Tuple {
-	public int index;
-	public double value;
-}

@@ -1,9 +1,0 @@
-package game;
-
-public  abstract class Player {
-
-	public static void main(String[] args){
-		
-		GameObject myObject=new GameObject();
-	}
-}

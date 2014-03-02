@@ -1,7 +1,0 @@
-package inheritence;
-
-public class Employee {
-		private String name;
-		private Date hireDate;
-		
-}

@@ -1,9 +1,0 @@
-package inheritence;
-
-public class HourlyEmployee {
-
-	public HourlyEmployee() {
-		// TODO Auto-generated constructor stub
-	}
-
-}
