@@ -27,49 +27,40 @@ public class S3BucketManager {
 			Region usWest2 = Region.getRegion(Regions.US_WEST_2);
 			s3.setRegion(usWest2);
 
-	        String bucketName = "liguifan3432";
-	       
-	        String path="/Users/liguifan/Desktop/2011_newZ";
-	        sql=upload_folder(path,bucketName,s3);
+	        String bucketName = "liguifanpicture";
+	        String path="/Users/liguifan/Dropbox/Movie/new";
+	        //create_bucket(bucketName);
+	        
+	        //sql=upload_folder(path,bucketName,s3);
+	        upload_folder_private(path, bucketName, s3);
+	        //list_objects(bucketName, s3);
 	        
 	        for(String x:sql){
 	        	System.out.println(x);
 	        }
 	 }
 	
-	public static void create_bucket(String bucketName, String key){
+	public static void create_bucket(String bucketName){
 		AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
 		Region usWest2 = Region.getRegion(Regions.US_WEST_2);
 		s3.setRegion(usWest2);
 		System.out.println("Creating bucket " + bucketName + "\n");
 		s3.createBucket(bucketName);
-		System.out.println("Listing buckets");
 		System.out.println();
 	}
 	
 	public static String upload(String path, String bucketName, String key_temp, AmazonS3 s3){
 		String key = "\""+key_temp+"\"";
 		String key2 =key_temp+"\"";
-		
 		try{
-		System.out.println("Uploading a new object to S3 with name"+key+"\n");
+		System.out.println("Uploading a new object to S3 with name"+key_temp+"\n");
 		s3.putObject(new PutObjectRequest(bucketName, key, new File(path))
 				.withCannedAcl(CannedAccessControlList.PublicRead));
 		System.out.println("done!");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		String url_link="\"https://s3-us-west-2.amazonaws.com"+"/"+bucketName+"/"+key2;
-		
-		System.out.println("Listing objects");
-		ObjectListing objectListing = s3.listObjects(new ListObjectsRequest()
-		.withBucketName(bucketName)
-		.withPrefix("My"));
-		for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
-			System.out.println(" - " + objectSummary.getKey() + "  " +
-					"(size = " + objectSummary.getSize() + ")");
-		}
 		return "insert into video_info values("+key+","+url_link+")";
 	}
 	
@@ -106,5 +97,51 @@ public class S3BucketManager {
             }  
             }
         return sql_cmd;
+	}
+	
+	//Test ok!
+	public static String upload_private(String path, String bucketName, String key_temp, AmazonS3 s3){
+		String key = "\""+key_temp+"\"";
+		String key2 =key_temp+"\"";
+		
+		try{
+		System.out.println("Uploading a new object to S3 with name"+key_temp+"\n");
+		s3.putObject(new PutObjectRequest(bucketName, key_temp, new File(path))
+				.withCannedAcl(CannedAccessControlList.Private));
+		System.out.println("done!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		String url_link="\"https://s3-us-west-2.amazonaws.com"+"/"+bucketName+"/"+key2;
+		return "insert into video_info values("+key+","+url_link+")";
+	}
+	
+	
+	//Test Ok
+	static public ArrayList<String> upload_folder_private(String filepath, String bucketName, AmazonS3 s3){ 
+        File f = new File(filepath);  
+        File[] files = f.listFiles();  
+//        List<File> list = new ArrayList<File>();  
+        ArrayList<String> sql_cmd=new ArrayList<String>();
+        for (File file : files) {  
+            if(file.isDirectory()) {  
+                ReadAllFile(file.getAbsolutePath());  
+            } else {  
+//                list.add(file);  
+                String sql_temp=upload_private(file.getAbsolutePath(), bucketName, file.getName(), s3);
+                sql_cmd.add(sql_temp);
+            }  
+            }
+        return sql_cmd;
+	}
+	
+	static public void list_objects(String bucketName,AmazonS3 s3){
+		System.out.println("Listing objects");
+		ObjectListing objectListing = s3.listObjects(new ListObjectsRequest()
+		.withBucketName(bucketName));
+		for (S3ObjectSummary objectSummary : objectListing.getObjectSummaries()) {
+			System.out.println(" - " + objectSummary.getKey() + "  " +
+					"(size = " + objectSummary.getSize() + ")");
+		}
 	}
 }
