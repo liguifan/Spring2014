@@ -1,0 +1,134 @@
+package Adaboosting;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import datastructure.Tuple;
+
+public class adaboosting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ArrayList<ArrayList<Tuple>> alldata=new ArrayList<ArrayList<Tuple>>();
+		ArrayList<Integer> y_real=new ArrayList<Integer>();
+		ArrayList<Integer> y_est=new ArrayList<Integer>();
+		ArrayList<Double> dataImportance=new ArrayList<Double>();
+		ArrayList<Double> alpha=new ArrayList<Double>();
+		// data_importance may be do something new;
+		alldata=read_file("/Users/liguifan/Desktop/data/rcv1-test.vw");
+		
+		System.out.println(alldata.size());
+		double error=0;
+		int M=alldata.size();
+		for(int i=0;i<=M-1;i++){
+			int factor=(y_real.get(i)==y_est.get(i))?0:1;
+			error+=dataImportance.get(i)*factor;
+		}
+		
+		alpha.set(t, 0.5*Math.log((1-error)/error);
+		
+		
+		
+		
+	}
+	
+	
+	//Test ok!
+	static ArrayList<ArrayList<Tuple>> read_file(String path){
+		ArrayList<ArrayList<Tuple>> alldata=new ArrayList<ArrayList<Tuple>>();
+		File file=new File(path);
+		BufferedReader reader=null;
+		try{
+			reader=new BufferedReader(new FileReader(file));
+			String tempstr=null;
+
+			while((tempstr=reader.readLine())!=null){
+				ArrayList<Tuple> single_path=read_into_tuples(tempstr);
+				alldata.add(single_path);
+			}
+
+		}catch (IOException e){
+			e.printStackTrace();
+		}finally{
+			if(reader!=null){
+				try{
+					reader.close();
+				}catch (IOException e1){
+				}
+			}
+		}
+		return alldata;
+	}
+
+	static double learning_rate_with_importance(double h, ArrayList<Tuple> x_list, int y, double[] theta,double learning_rate){
+
+		double A=norm_square_sparse(x_list);
+		System.out.println("norm x is : "+A);
+		double B=sparse_dot_product(theta, x_list);
+		System.out.println("sparse dot product is : "+B);
+		double s=(B-y)/A*(1-Math.exp(-h*learning_rate*A));
+
+		return s;
+	}
+
+
+	public final static double sparse_dot_product(double[] weight, ArrayList<Tuple> tuple){
+
+		double sum=0;
+		for(Tuple x:tuple){
+			sum+=weight[x.index]*x.value;
+		}
+		return sum;
+	}
+
+
+	// Test OK!
+	public static double norm_square_sparse(ArrayList<Tuple> x_list){
+
+		double sum=0;
+		for(Tuple x:x_list){
+			sum+=x.value*x.value;
+		}
+		return sum;
+	}
+
+	public final static ArrayList<Tuple> read_into_tuples(String line){
+		/*
+	String[] line1=line.split("features");
+	String[] line2=line1[1].split("const:");
+	String valid_line=line2[0].substring(1,line2[0].length());
+		 */
+		String valid_line=line.substring(12,line.length()-10);
+		String[] arr=valid_line.split(" ");
+		ArrayList<Tuple> set=new ArrayList<Tuple>();
+		for(String single:arr){
+			Tuple temp=extract_value(single);
+			set.add(temp);
+		}
+		return set;
+	}
+
+	public final static Tuple extract_value(String single){
+		String new_str=single.substring(1,single.length());
+		String[] arr=new_str.split(":");
+		//int index=parseInt(arr[0]);
+		int index=parseInt(arr[0]);
+		double value=Double.parseDouble(arr[1]);
+		return new Tuple(index,value);
+
+	}
+
+	public static int parseInt(String str){
+		int sum=0;
+		for(int i=0;i<=str.length()-1;i++){
+			sum=10*sum+((int)str.charAt(i)-48);
+		}
+		return sum;
+	} 
+
+
+}

@@ -1,0 +1,63 @@
+package Adaboosting;
+
+import java.util.ArrayList;
+
+import datastructure.Tuple;
+
+public class adaboosting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ArrayList<Tuple> x_list=new ArrayList<Tuple>();
+		for(int i=0;i<=3-1;i++){
+			x_list.add(new Tuple(i,i+1));
+			
+		}
+		
+		for(Tuple x:x_list){
+			System.out.println(x.value);
+		}
+		
+		double x=norm_square_sparse(x_list);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+double[] learning_rate_with_importance(double importance, Tuple x, int y, double[] theta,double learning_rate){
+	
+	double A=norm_square_sparse(x);
+	double B=sparse_dot_product(theta, x);
+	
+	
+	return theta;
+}
+	
+
+public static double sparse_dot_product(double[] weight, Tuple tuple){
+	
+	double sum=0;
+	while(tuple!=null){
+		sum+=weight[tuple.index]*tuple.value;
+		tuple=tuple.next;
+	}
+	return sum;
+}
+
+public static double norm_square_sparse(ArrayList<Tuple> x_list){
+	
+	double sum=0;
+	for(Tuple x:x_list){
+		sum+=x.value*x.value;
+	}
+	return sum;
+}
+
+}

@@ -1,0 +1,10 @@
+package Adaboosting;
+
+public class adaboosting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

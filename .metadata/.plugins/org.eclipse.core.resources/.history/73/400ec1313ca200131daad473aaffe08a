@@ -1,0 +1,45 @@
+package Adaboosting;
+
+import datastructure.Tuple;
+
+public class adaboosting {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+double[] learning_rate_with_importance(double importance, Tuple x, int y, double[] theta,double learning_rate){
+	
+	double A=norm_square_sparse(x);
+	double B=sparse_dot_product(theta, x);
+	
+	
+	return theta;
+}
+	
+
+public static double sparse_dot_product(double[] weight, Tuple tuple){
+	
+	double sum=0;
+	while(tuple!=null){
+		sum+=weight[tuple.index]*tuple.value;
+		tuple=tuple.next;
+	}
+	return sum;
+}
+
+public static double norm_square_sparse(x){
+	
+}
+
+}

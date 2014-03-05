@@ -1,0 +1,11 @@
+package Stochastic_gradient_decent;
+import net.sf.javaml.utils.ArrayUtils;
+
+public class test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		double[] re={1,3,4,5};
+	}
+
+}
