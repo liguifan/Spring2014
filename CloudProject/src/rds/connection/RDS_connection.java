@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +18,6 @@ public class RDS_connection {
 	final String DB_PWD = "liguifan";
 	final String DB_NAME = "mydb";
 	final int DB_PORT = 3306;
-	ResultSet rs=null;
 	String insql;
 	String upsql;
 	String delsql;
@@ -43,12 +43,12 @@ public class RDS_connection {
 
 	public void CutConnection(Connection conn) throws SQLException{
 		try{
-			if(rs!=null);
+			if(resultSet!=null);
 			if(conn!=null);
 		}catch(Exception e){
 			e.printStackTrace();
 		}finally{
-			rs.close();
+			resultSet.close();
 			conn.close();
 		}
 	}
@@ -322,6 +322,42 @@ public class RDS_connection {
 		}
 
 
+		public void Get_DYtable(String ID) {
+			ArrayList<String> friends=new ArrayList<String>();
+			String select="SELECT * FROM DYNAMIC_TABLE where userid=?";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					System.out.print(resultSet.getString("stage") + " "); 
+					System.out.print(resultSet.getString("url1") + " "); 
+					System.out.print(resultSet.getString("url2") + " "); 
+					System.out.print(resultSet.getString("online") + " "); 
+					System.out.println(resultSet.getString("last_update") + " "); 
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+
+		public ArrayList<String> Get_friends(String ID) {
+			ArrayList<String> friends=new ArrayList<String>();
+			String select="SELECT * FROM DYNAMIC_TABLE where userid=?";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					friends.add(resultSet.getString("matching_userid"));
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return friends;
+		}
+
+
 
 		//this is to get the matching mate list from the database
 		public String match_result(String UserID) throws SQLException{
@@ -413,14 +449,16 @@ public class RDS_connection {
 		RDS_connection cd=new RDS_connection();
 		user user1=cd.new user();
 		cd.createConnectionAndStatement();
-		user1.setUserid("155");
-		user1.register_ID(user1);
-		user user2=cd.new user();
-		user2.setAge("12");
-		user1.UpdateUser("155", user2);
+		//		user1.setUserid("155");
+		//		user1.register_ID(user1);
+		//		user user2=cd.new user();
+		//		user2.setAge("12");
+		//		user1.UpdateUser("155", user2);
+		user1.Get_DYtable("599813130");
 		//	         user1.DeletUser("155");
 		//	         cd.CutConnection(cd.conn);
 	}
+
 
 
 	//		RDS r=new RDS();
