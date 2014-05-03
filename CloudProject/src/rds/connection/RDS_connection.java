@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class RDS_connection {
-	Connection conn=null;
+	Connection conn;
 	Statement statement = null;
 	ResultSet resultSet = null;
 	String DB_END_POINT = "mydbinstance.crowgjuaiaiz.us-east-1.rds.amazonaws.com";
@@ -21,6 +21,56 @@ public class RDS_connection {
 	String insql;
 	String upsql;
 	String delsql;
+
+
+	public Connection getConn() {
+		return conn;
+	}
+
+	public void setConn(Connection conn) {
+		this.conn = conn;
+	}
+
+	public Statement getStatement() {
+		return statement;
+	}
+
+	public void setStatement(Statement statement) {
+		this.statement = statement;
+	}
+
+	public ResultSet getResultSet() {
+		return resultSet;
+	}
+
+	public void setResultSet(ResultSet resultSet) {
+		this.resultSet = resultSet;
+	}
+
+	public String getInsql() {
+		return insql;
+	}
+
+	public void setInsql(String insql) {
+		this.insql = insql;
+	}
+
+	public String getUpsql() {
+		return upsql;
+	}
+
+	public void setUpsql(String upsql) {
+		this.upsql = upsql;
+	}
+
+	public String getDelsql() {
+		return delsql;
+	}
+
+	public void setDelsql(String delsql) {
+		this.delsql = delsql;
+	}
+
 
 	public Connection createConnectionAndStatement()
 	{
@@ -50,6 +100,7 @@ public class RDS_connection {
 		}finally{
 			resultSet.close();
 			conn.close();
+			System.out.println("Connection is close");
 		}
 	}
 
@@ -62,7 +113,7 @@ public class RDS_connection {
 		statement.executeUpdate(insert);
 	}
 
-	class user{
+	public class user{
 		String userid="";
 		String username="";
 		String password="";
@@ -357,6 +408,149 @@ public class RDS_connection {
 			return friends;
 		}
 
+		public String[] Get_MATM(String ID) {
+			String select="SELECT * FROM REGISTER where userid=?";
+			String[] matm={"","","",""};
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					matm[0]=resultSet.getString("movies");
+					matm[1]=resultSet.getString("athelete");
+					matm[2]=resultSet.getString("teams");
+					matm[3]=resultSet.getString("musician");
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return matm;
+		}
+
+
+		public String Get_Status(String ID){
+
+			String select="SELECT * FROM DYNAMIC_TABLE where userid=?";
+			String status="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					status=resultSet.getString("stage");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return status;
+		}
+
+		public String Get_Online(String ID){
+			String select="SELECT * FROM DYNAMIC_TABLE where userid=?";
+			String status="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					status=resultSet.getString("online");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return status;
+		}
+
+		public boolean Updata_Stage(String ID,String stage){
+			upsql="update DYNAMIC_TABLE set stage=? where userid=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, stage);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();//返回行数或者0
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+
+		public boolean Updata_Online(String ID, String online){
+			upsql="update DYNAMIC_TABLE set online=? where userid=?";
+			System.out.println("owner ID is "+ID);
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, online);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();//返回行数或者0
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+
+		public String Get_Matching_FL(String ID){
+//			String select="SELECT * FROM MATCHING_LIST where userid=?";// and matching score is max 
+			String select="select * from MATCHING_LIST M where M.matching_score= (select MAX(M2.matching_score) from MATCHING_LIST M2 where M2.userid=?)";
+			String F_ID="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					F_ID=resultSet.getString("matching_userid");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return F_ID;
+
+		}
+
+		public boolean FL_Insert(String ID,String M_ID, String score){
+			String insql="insert into MATCHING_LIST(userid,matching_userid,score) values(?,?,?)";
+			if(!ID.equals(M_ID)){
+				try {
+					PreparedStatement ps=conn.prepareStatement(insql);
+					ps.setString(1, ID);
+					ps.setString(2, M_ID);
+					ps.setString(3, score);
+					int result=ps.executeUpdate();
+					ps.setString(2, ID);
+					ps.setString(1, M_ID);
+					ps.setString(3, score);
+					result=ps.executeUpdate();
+					if(result>0)
+						return true;
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+			return false;
+
+		}
+		 
+
+
+		public boolean Update_TimeStamp(String ID,String time){
+			upsql="update DYNAMIC_TABLE set time_stamp=? where userid=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(10, ID);
+				ps.setString(1, time);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+
 
 
 		//this is to get the matching mate list from the database
@@ -448,13 +642,21 @@ public class RDS_connection {
 	public static void main(String args[]) throws SQLException{
 		RDS_connection cd=new RDS_connection();
 		user user1=cd.new user();
-		cd.createConnectionAndStatement();
-		//		user1.setUserid("155");
+		Connection conn = cd.createConnectionAndStatement();
+		//				user1.setUserid("155888");
 		//		user1.register_ID(user1);
 		//		user user2=cd.new user();
-		//		user2.setAge("12");
+		//				user1.setAge("12");
 		//		user1.UpdateUser("155", user2);
-		user1.Get_DYtable("599813130");
+		String m=user1.Get_Online("527167503");
+		String mm=user1.Get_Matching_FL("527167503");
+		//		user1.Updata_Online("599813130", "off");
+		//		user1.Updata_Stage("599813130", "mm:");
+		System.out.println(mm);
+//		user1.FL_Insert("8881", "9991");
+		//		user1.register_ID(user1);
+		cd.CutConnection(conn);
+		//user1.Get_DYtable("599813130");
 		//	         user1.DeletUser("155");
 		//	         cd.CutConnection(cd.conn);
 	}

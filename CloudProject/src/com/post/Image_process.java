@@ -1,5 +1,5 @@
 package com.post;
-import gaussian.GaussianFilter;
+import gaussian.blur.GaussianFilter;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -40,17 +40,12 @@ public class Image_process {
 
 		URL url = new URL(imageUrl);
 		InputStream is = url.openStream();
-
 		//		OutputStream os = new FileOutputStream(destinationFile);
-
 		byte[] b = new byte[2048];
 		int length;
-
 		//		while ((length = is.read(b)) != -1) {
 		//			os.write(b, 0, length);
 		//		}
-
-
 		String Phote_image=UserID+"1";
 		AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
 
@@ -108,9 +103,9 @@ public class Image_process {
 				GaussianFilter BB=new GaussianFilter(18*i);  // the radius of the blur
 				BufferedImage imageA=BB.filter(image,null);
 				//This is store the pictures in local
-				File file = new File ("/Users/liguifan/Desktop/Cloud_pic/shuguan"+i+".jpg");
+//				File file = new File ("/Users/liguifan/Desktop/Cloud_pic/shuguan"+i+".jpg");
 				String format = "JPEG";
-				ImageIO.write(imageA, format , file);
+//				ImageIO.write(imageA, format , file);
 
 				//This is to upload in S3
 				AmazonS3 s3 = new AmazonS3Client(new ClasspathPropertiesFileCredentialsProvider());
@@ -133,9 +128,6 @@ public class Image_process {
 
 	}
 }
-
-	
-
 
 
 }
