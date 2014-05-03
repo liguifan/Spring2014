@@ -342,6 +342,8 @@ public class HTTPhandler extends HttpServlet {
 		//
 		//		}
 
+		
+		
 
 		String mate="";
 		stage=user_t.Get_Status(ID);
