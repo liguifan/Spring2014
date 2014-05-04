@@ -116,7 +116,7 @@ public class RDS_connection {
 	public class user{
 		String userid="";
 		String username="";
-		String password="";
+		String facebook_url="";
 		String age="";
 		String photo="";
 		String movies="";
@@ -131,8 +131,23 @@ public class RDS_connection {
 		String online="";
 		String last_online="";
 		String last_update="";
+		String device_token="";
 
+		public String getDevice_token() {
+			return device_token;
+		}
 
+		public void setDevice_token(String device_token) {
+			this.device_token = device_token;
+		}
+		
+		public String getFacebook_url() {
+			return facebook_url;
+		}
+
+		public void setFacebook_url(String facebook_url) {
+			this.facebook_url = facebook_url;
+		}
 		public String getUserid() {
 			return userid;
 		}
@@ -149,13 +164,6 @@ public class RDS_connection {
 			this.username = username;
 		}
 
-		public String getPassword() {
-			return password;
-		}
-
-		public void setPassword(String password) {
-			this.password = password;
-		}
 
 		public String getAge() {
 			return age;
@@ -217,14 +225,14 @@ public class RDS_connection {
 		public boolean register_ID(user user){
 			try{
 
-				String insql="insert into REGISTER(userid,password,name,age,photo,movies,athelete,teams,musician,personality) values(?,?,?,?,?,?,?,?,?,?)";
+				String insql="insert into REGISTER(userid,facebook_url,name,age,photo,movies,athelete,teams,musician,personality,device_token) values(?,?,?,?,?,?,?,?,?,?,?)";
 				//上面的方法比下面的方法有优势，一方面是安全性，另一方面我忘记了……
 				//insql="insert into user(userid,username,password,email) values(user.getId,user.getName,user.getPassword,user.getEmail)";
 				PreparedStatement ps=conn.prepareStatement(insql);
 				//.preparedStatement(insql);
 				//PreparedStatement  ps=(PreparedStatement) conn.prepareStatement(insql);
 				ps.setString(1, user.getUserid());
-				ps.setString(2, user.getPassword());
+				ps.setString(2, user.getFacebook_url());
 				ps.setString(3, user.getUsername());
 				ps.setString(4, user.getAge());
 				ps.setString(5, user.getPhoto());
@@ -233,6 +241,7 @@ public class RDS_connection {
 				ps.setString(8, user.getTeams());
 				ps.setString(9, user.getMusician());
 				ps.setString(10, user.getPersonality());
+				ps.setString(11, user.getDevice_token());
 				int result=ps.executeUpdate();
 				//ps.executeUpdate();无法判断是否已经插入
 				if(result>0)
@@ -245,11 +254,11 @@ public class RDS_connection {
 
 
 		public boolean UpdateUser(String ID, user user){
-			upsql="update REGISTER set password=?,name=?,age=?,photo=?,movies=?,athelete=?,teams=?,musician=?,personality=? where userid=?";
+			upsql="update REGISTER set password=?,name=?,age=?,photo=?,movies=?,athelete=?,teams=?,musician=?,personality=?,device_token=? where userid=?";
 			try {
 				PreparedStatement ps = conn.prepareStatement(upsql);
 				ps.setString(10, ID);
-				ps.setString(1, user.getPassword());
+				ps.setString(1, user.getFacebook_url());
 				ps.setString(2, user.getUsername());
 				ps.setString(3, user.getAge());
 				ps.setString(4, user.getPhoto());
@@ -258,6 +267,7 @@ public class RDS_connection {
 				ps.setString(7, user.getTeams());
 				ps.setString(8, user.getMusician());
 				ps.setString(9, user.getPersonality());
+				ps.setString(10, user.getDevice_token());
 				int result=ps.executeUpdate();//返回行数或者0
 				if(result>0)
 					return true;
@@ -407,7 +417,7 @@ public class RDS_connection {
 			}
 			return friends;
 		}
-
+		//get movies athelete , team and musician.
 		public String[] Get_MATM(String ID) {
 			String select="SELECT * FROM REGISTER where userid=?";
 			String[] matm={"","","",""};
@@ -427,7 +437,7 @@ public class RDS_connection {
 			return matm;
 		}
 
-
+		//get the user ID's stage
 		public String Get_Status(String ID){
 
 			String select="SELECT * FROM DYNAMIC_TABLE where userid=?";
@@ -460,7 +470,7 @@ public class RDS_connection {
 			}
 			return status;
 		}
-
+		//update the user:ID 's stage 
 		public boolean Updata_Stage(String ID,String stage){
 			upsql="update DYNAMIC_TABLE set stage=? where userid=?";
 			try {
@@ -491,10 +501,10 @@ public class RDS_connection {
 			}
 			return false;
 		}
-
+		// this is to get the ID's matching according to the matching list.
 		public String Get_Matching_FL(String ID){
 //			String select="SELECT * FROM MATCHING_LIST where userid=?";// and matching score is max 
-			String select="select * from MATCHING_LIST M where M.matching_score= (select MAX(M2.matching_score) from MATCHING_LIST M2 where M2.userid=?)";
+			String select="select * from MATCHING_LIST M where M.userid= ? and M.matching_score= (select MAX(M2.matching_score) from MATCHING_LIST M2 where M2.userid=M.userid)";
 			String F_ID="";
 			try {
 				PreparedStatement ps=conn.prepareStatement(select);
@@ -511,7 +521,7 @@ public class RDS_connection {
 		}
 
 		public boolean FL_Insert(String ID,String M_ID, String score){
-			String insql="insert into MATCHING_LIST(userid,matching_userid,score) values(?,?,?)";
+			String insql="insert into MATCHING_LIST(userid,matching_userid,matching_score) values(?,?,?)";
 			if(!ID.equals(M_ID)){
 				try {
 					PreparedStatement ps=conn.prepareStatement(insql);
@@ -539,7 +549,7 @@ public class RDS_connection {
 			upsql="update DYNAMIC_TABLE set time_stamp=? where userid=?";
 			try {
 				PreparedStatement ps = conn.prepareStatement(upsql);
-				ps.setString(10, ID);
+//				ps.setString(10, ID);
 				ps.setString(1, time);
 				ps.setString(2, ID);
 				int result=ps.executeUpdate();
@@ -551,8 +561,60 @@ public class RDS_connection {
 			return false;
 		}
 
-
-
+		
+		//this is to retrieve the device token from REGISTER table by ID
+		public String Read_devicetoken(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String status="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					//get the device_token field
+					status=resultSet.getString("device_token");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return status;
+			
+		}
+		
+		//update the device token by ID
+		public boolean Update_devicetoken(String ID, String devicetoken){
+			upsql="update REGISTER set device_token=? where userid=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, devicetoken);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+		
+		//this is to read facebook url from table REGISTER according to ID
+		public String Read_facebookURL(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String url="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					//get the device_token field
+					url=resultSet.getString("facebook_url");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return url;
+		}
+		
 		//this is to get the matching mate list from the database
 		public String match_result(String UserID) throws SQLException{
 			PreparedStatement pstmt=null;
@@ -650,40 +712,22 @@ public class RDS_connection {
 		//		user1.UpdateUser("155", user2);
 		String m=user1.Get_Online("527167503");
 		String mm=user1.Get_Matching_FL("527167503");
+		
+//		user1.FL_Insert("527167503", "599813130", "55");
 		//		user1.Updata_Online("599813130", "off");
 		//		user1.Updata_Stage("599813130", "mm:");
 		System.out.println(mm);
 //		user1.FL_Insert("8881", "9991");
 		//		user1.register_ID(user1);
+		
+		user1.Update_devicetoken("599813130", "dd3");
+		String mm1= user1.Read_devicetoken("599813130");
+		System.out.println(mm1);
 		cd.CutConnection(conn);
 		//user1.Get_DYtable("599813130");
 		//	         user1.DeletUser("155");
 		//	         cd.CutConnection(cd.conn);
 	}
-
-
-
-	//		RDS r=new RDS();
-	//		r.createConnectionAndStatement();
-	//		String name1="Music21fadf1eeedfe";
-	//		String name2="Music3";
-	//		String link1="dddd1";
-	//		String link2="dddd1";
-	//		//r.deleteTable("VIDEO_INFO");
-	//		String tablename="USER_ORIGINAL";
-	//		//		r.deleteTable(tablename);
-	//		//		r.create_UserTable(tablename);
-	//		String a=r.match_result("151");
-	//		System.out.println(a);
-	//
-	//		//		r.update_DynamicStatus(link1, link1, link1, link1, link1, link1, link1, link1);
-	//		//		r.update_register("100007158396565", link1, link1, link1, link1, link1, link1, link1, link1);
-	//		boolean x=r.check_containID("599813130");
-	//		System.out.println("fadf "+x);
-	//		//r.register_ID("100007158396565",name1,name1,name1,name1,name1,name1,name1,name1);
-	//		//		r.insertTable(tablename,name2,link2);
-	//		//		System.out.println(r.queryTable(tablename));
-
 }
 
 
