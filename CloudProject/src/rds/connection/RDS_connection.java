@@ -1,4 +1,7 @@
 package rds.connection;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -138,7 +141,7 @@ public class RDS_connection {
 		String q_option="";
 		String all_like="";
 		String all_like_ID="";
-		
+
 		public String getAll_like() {
 			return all_like;
 		}
@@ -257,7 +260,7 @@ public class RDS_connection {
 		public void setQ_option(String q_option) {
 			this.q_option = q_option;
 		}
-		
+
 
 		//??test=
 		public boolean register_ID(user user){
@@ -338,7 +341,7 @@ public class RDS_connection {
 			}
 			return alllike;
 		}
-		
+
 		public boolean Update_alllike(String ID,String alllike){
 			upsql="update REGISTER set all_like=? where userid=?";
 			System.out.println("owner ID is "+ID);
@@ -354,7 +357,7 @@ public class RDS_connection {
 			}
 			return false;
 		}
-		
+
 		public String Read_alllikeID(String ID){
 			String select="SELECT * FROM REGISTER where userid=?";
 			String alllikeID="";
@@ -370,7 +373,7 @@ public class RDS_connection {
 			}
 			return alllikeID;
 		}
-		
+
 		public boolean Update_alllikeID(String ID,String alllikeID){
 			upsql="update REGISTER set all_like_ID=? where userid=?";
 			System.out.println("owner ID is "+ID);
@@ -386,8 +389,8 @@ public class RDS_connection {
 			}
 			return false;
 		}
-		
-		
+
+
 		public String Read_age(String ID){
 			String select="SELECT * FROM REGISTER where userid=?";
 			String age="";
@@ -403,7 +406,7 @@ public class RDS_connection {
 			}
 			return age;
 		}
-		
+
 		public String Read_name(String ID){
 			String select="SELECT * FROM REGISTER where userid=?";
 			String name="";
@@ -613,8 +616,8 @@ public class RDS_connection {
 			}
 			return status;
 		}
-		
-		
+
+
 		//update the user:ID 's stage 
 		public boolean Updata_Stage(String ID,String stage){
 			upsql="update DYNAMIC_TABLE set stage=? where userid=?";
@@ -630,10 +633,10 @@ public class RDS_connection {
 			}
 			return false;
 		}
-		
-		
-		
-		
+
+
+
+
 		public boolean Updata_Online(String ID, String online){
 			upsql="update DYNAMIC_TABLE set online=? where userid=?";
 			System.out.println("owner ID is "+ID);
@@ -937,6 +940,30 @@ public class RDS_connection {
 
 		}
 
+		public boolean Update_url_image(String index, String url,String o1,String o2,String o3,String o4){
+			String insql="insert into IMAGE_URL(image_index,image_url,option1,option2,option3,option4) values(?,?,?,?,?,?)";
+			//上面的方法比下面的方法有优势，一方面是安全性，另一方面我忘记了……
+			//insql="insert into user(userid,username,password,email) values(user.getId,user.getName,user.getPassword,user.getEmail)";
+			try{
+				PreparedStatement ps=conn.prepareStatement(insql);
+				//.preparedStatement(insql);
+				//PreparedStatement  ps=(PreparedStatement) conn.prepareStatement(insql);
+				ps.setString(1, index);
+				ps.setString(2, url);
+				ps.setString(3, o1);
+				ps.setString(4, o2);
+				ps.setString(5, o3);
+				ps.setString(6, o4);
+				int result=ps.executeUpdate();
+				//ps.executeUpdate();无法判断是否已经插入
+				if(result>0)
+					return true;
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return false;
+		}
+
 
 		public boolean Dynamic_create_table(String ID) throws SQLException{
 			String create_table="create table "+ID+"_last_denied"+" (mate_id varchar(45), last_denied varchar(45), primary key(mate_id))";
@@ -945,6 +972,16 @@ public class RDS_connection {
 
 			statement.executeUpdate(create_table);
 			return false;
+		}
+
+		public int[] ttttt(String m){
+			String[] x=m.split(",");
+
+			int[] result=new int[4];
+			for(int i=0;i<4;i++){
+				result[i]=Integer.parseInt(x[i]);
+			}
+			return result;
 		}
 
 		public boolean Check_stamp(String ID, String mate_ID, long threhold){
@@ -1010,7 +1047,7 @@ public class RDS_connection {
 				result+=strMatch(user1[3],user2[3]);
 			}
 
-			
+
 			return result;
 		}
 
@@ -1033,7 +1070,7 @@ public class RDS_connection {
 					String common=match_interest(id_interest, interest);
 					common=common.substring(0,common.length()-1);
 					System.out.println("cooon is "+common);
-					
+
 					if(common.length()!=0){
 						result.add(s+"&&"+common+"&&"+personality);
 					}
@@ -1051,14 +1088,35 @@ public class RDS_connection {
 	//https://s3-us-west-2.amazonaws.com/liguifan-cloud-image/big5.csv
 	//https://s3-us-west-2.amazonaws.com/liguifan-cloud-image/class1200.txt
 
+
+
 	public InputStream url2inputstream(String url1) throws IOException{
 		URL url = new URL(url1);
 		InputStream is = url.openStream();
 		return is;
 	}
+	
+	public String Read_Option_Similarity(String index){
+		String select="SELECT * FROM OPTION_SIMILARITY where option=?";
+		String u="";
+		try {
+			PreparedStatement ps=conn.prepareStatement(select);
+			ps.setString(1, index);
+			resultSet=ps.executeQuery();
+			if (resultSet.next() ){
+				//get the device_token field
+				u=resultSet.getString("similarity");
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return u;
+	}
 
 
-	public static void main(String args[]) throws SQLException{
+
+
+	public static void main(String args[]) throws SQLException, IOException{
 		RDS_connection cd=new RDS_connection();
 		user user1=cd.new user();
 		Connection conn = cd.createConnectionAndStatement();
@@ -1096,21 +1154,35 @@ public class RDS_connection {
 		//		System.out.println(i+" "+p+" "+q);599813130
 		//		user1.Dynamic_create_table("599813130");
 		System.out.println(System.currentTimeMillis());
-			//		}
-		
+		//		}
+		String[] temp={"happy","sad","angry","surprised","scared","interested","disgusted","moved"};
+		String fileName="/Users/liguifan/Desktop/comments.txt";
+		File file = new File(fileName);  
+		BufferedReader reader = null;  
+		System.out.println("read by line");  
+		reader = new BufferedReader(new FileReader(file));  
+		String tempString = null;    
 
-			//user1.Get_DYtable("599813130");
-			//	         user1.DeletUser("155");
-			//	         cd.CutConnection(
-			//		System.out.println(user1.Check_stamp("599813130", "222", 50000000));
-			//		System.out.println(System.currentTimeMillis());
-
-			cd.CutConnection();
-			//		1399245461947,1399245650369
-			
-			//1399253474782
+		 
+		for(int i =0;i<100;i++){
+			tempString = reader.readLine();
+			int[] O=user1.ttttt(tempString);
+			String s="https://s3.amazonaws.com/project123/"+i+".jpg";
+			System.out.println(temp[O[0]-1]+temp[O[1]-1]+temp[O[2]-1]+temp[O[3]-1]);
+			user1.Update_url_image(i+"",s,temp[O[0]-1],temp[O[1]-1],temp[O[2]-1],temp[O[3]-1]);
 		}
+		//user1.Get_DYtable("599813130");
+		//	         user1.DeletUser("155");
+		//	         cd.CutConnection(
+		//		System.out.println(user1.Check_stamp("599813130", "222", 50000000));
+		//		System.out.println(System.currentTimeMillis());
+		reader.close(); 
+		cd.CutConnection();
+		//		1399245461947,1399245650369
+
+
 	}
+}
 
 
 
