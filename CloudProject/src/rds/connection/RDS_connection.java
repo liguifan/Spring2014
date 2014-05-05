@@ -1,4 +1,7 @@
 package rds.connection;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -78,6 +81,7 @@ public class RDS_connection {
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			conn = DriverManager.getConnection("jdbc:mysql://"+DB_END_POINT+":"+DB_PORT+"/"+DB_NAME,DB_USER_NAME,DB_PWD);
+			statement=conn.createStatement();
 			if(!conn.isClosed()){
 				System.out.println("Succeeded connecting to the Database!");
 			}
@@ -91,27 +95,25 @@ public class RDS_connection {
 		return conn;
 	}
 
-	public void CutConnection(Connection conn) throws SQLException{
-		try{
-			if(resultSet!=null);
-			if(conn!=null);
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			resultSet.close();
-			conn.close();
-			System.out.println("Connection is close");
+
+	public void CutConnection() {
+		try {
+			if (resultSet != null) {
+				resultSet.close();
+			}
+
+			if (statement != null) {
+				statement.close();
+			}
+
+			if (conn != null) {
+				conn.close();
+			}
+		} catch (Exception e) {
+
 		}
 	}
 
-
-
-	public void insertTable(String Tablename,String name, String link) throws SQLException{
-		String insert="insert into "+Tablename+" values(\""+name+"\",\""+link+"\")";
-		System.out.println(insert);
-		createConnectionAndStatement();
-		statement.executeUpdate(insert);
-	}
 
 	public class user{
 		String userid="";
@@ -132,6 +134,26 @@ public class RDS_connection {
 		String last_online="";
 		String last_update="";
 		String device_token="";
+		String i_option="";
+		String q_option="";
+		String all_like="";
+		String all_like_ID="";
+		
+		public String getAll_like() {
+			return all_like;
+		}
+
+		public void setAll_like(String all_like) {
+			this.all_like = all_like;
+		}
+
+		public String getAll_like_ID() {
+			return all_like_ID;
+		}
+
+		public void setAll_like_ID(String all_like_ID) {
+			this.all_like_ID = all_like_ID;
+		}
 
 		public String getDevice_token() {
 			return device_token;
@@ -140,7 +162,7 @@ public class RDS_connection {
 		public void setDevice_token(String device_token) {
 			this.device_token = device_token;
 		}
-		
+
 		public String getFacebook_url() {
 			return facebook_url;
 		}
@@ -220,12 +242,28 @@ public class RDS_connection {
 		public void setPersonality(String personality) {
 			this.personality = personality;
 		}
+		public String getI_option() {
+			return i_option;
+		}
+
+		public void setI_option(String i_option) {
+			this.i_option = i_option;
+		}
+
+		public String getQ_option() {
+			return q_option;
+		}
+
+		public void setQ_option(String q_option) {
+			this.q_option = q_option;
+		}
+		
 
 		//??test=
 		public boolean register_ID(user user){
 			try{
 
-				String insql="insert into REGISTER(userid,facebook_url,name,age,photo,movies,athelete,teams,musician,personality,device_token) values(?,?,?,?,?,?,?,?,?,?,?)";
+				String insql="insert into REGISTER(userid,facebook_url,name,age,photo,movies,athelete,teams,musician,personality,device_token,i_option,q_option, all_like, all_like_ID) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 				//上面的方法比下面的方法有优势，一方面是安全性，另一方面我忘记了……
 				//insql="insert into user(userid,username,password,email) values(user.getId,user.getName,user.getPassword,user.getEmail)";
 				PreparedStatement ps=conn.prepareStatement(insql);
@@ -242,6 +280,10 @@ public class RDS_connection {
 				ps.setString(9, user.getMusician());
 				ps.setString(10, user.getPersonality());
 				ps.setString(11, user.getDevice_token());
+				ps.setString(12, user.getI_option());
+				ps.setString(13, user.getQ_option());
+				ps.setString(14, user.getAll_like());
+				ps.setString(15, user.getAll_like_ID());
 				int result=ps.executeUpdate();
 				//ps.executeUpdate();无法判断是否已经插入
 				if(result>0)
@@ -254,10 +296,10 @@ public class RDS_connection {
 
 
 		public boolean UpdateUser(String ID, user user){
-			upsql="update REGISTER set password=?,name=?,age=?,photo=?,movies=?,athelete=?,teams=?,musician=?,personality=?,device_token=? where userid=?";
+			upsql="update REGISTER set facebook_url=?,name=?,age=?,photo=?,movies=?,athelete=?,teams=?,musician=?,personality=?,device_token=?,i_option=?,q_option=?,all_like=?,all_like_ID=? where userid=?";
 			try {
 				PreparedStatement ps = conn.prepareStatement(upsql);
-				ps.setString(10, ID);
+				ps.setString(15, ID);
 				ps.setString(1, user.getFacebook_url());
 				ps.setString(2, user.getUsername());
 				ps.setString(3, user.getAge());
@@ -268,6 +310,10 @@ public class RDS_connection {
 				ps.setString(8, user.getMusician());
 				ps.setString(9, user.getPersonality());
 				ps.setString(10, user.getDevice_token());
+				ps.setString(11, user.getI_option());
+				ps.setString(12, user.getQ_option());
+				ps.setString(13, user.getAll_like());
+				ps.setString(14, user.getAll_like_ID());
 				int result=ps.executeUpdate();//返回行数或者0
 				if(result>0)
 					return true;
@@ -276,6 +322,103 @@ public class RDS_connection {
 			}
 			return false;
 		}
+
+		public String Read_alllike(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String alllike="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					alllike=resultSet.getString("all_like");
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return alllike;
+		}
+		
+		public boolean Update_alllike(String ID,String alllike){
+			upsql="update REGISTER set all_like=? where userid=?";
+			System.out.println("owner ID is "+ID);
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, alllike);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();//返回行数或者0
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+		
+		public String Read_alllikeID(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String alllikeID="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					alllikeID=resultSet.getString("all_like_ID");
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return alllikeID;
+		}
+		
+		public boolean Update_alllikeID(String ID,String alllikeID){
+			upsql="update REGISTER set all_like_ID=? where userid=?";
+			System.out.println("owner ID is "+ID);
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, alllikeID);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();//返回行数或者0
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+		
+		
+		public String Read_age(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String age="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					age=resultSet.getString("age");
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return age;
+		}
+		
+		public String Read_name(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String name="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				while(resultSet.next()){ 
+					name=resultSet.getString("name");
+				} 
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return name;
+		}		
 
 		public boolean DeletUser(String ID){
 			String delsql="delete from REGISTER where userid=?";
@@ -470,6 +613,8 @@ public class RDS_connection {
 			}
 			return status;
 		}
+		
+		
 		//update the user:ID 's stage 
 		public boolean Updata_Stage(String ID,String stage){
 			upsql="update DYNAMIC_TABLE set stage=? where userid=?";
@@ -485,7 +630,10 @@ public class RDS_connection {
 			}
 			return false;
 		}
-
+		
+		
+		
+		
 		public boolean Updata_Online(String ID, String online){
 			upsql="update DYNAMIC_TABLE set online=? where userid=?";
 			System.out.println("owner ID is "+ID);
@@ -503,7 +651,7 @@ public class RDS_connection {
 		}
 		// this is to get the ID's matching according to the matching list.
 		public String Get_Matching_FL(String ID){
-//			String select="SELECT * FROM MATCHING_LIST where userid=?";// and matching score is max 
+			//			String select="SELECT * FROM MATCHING_LIST where userid=?";// and matching score is max 
 			String select="select * from MATCHING_LIST M where M.userid= ? and M.matching_score= (select MAX(M2.matching_score) from MATCHING_LIST M2 where M2.userid=M.userid)";
 			String F_ID="";
 			try {
@@ -520,18 +668,16 @@ public class RDS_connection {
 
 		}
 
-		public boolean FL_Insert(String ID,String M_ID, String score){
-			String insql="insert into MATCHING_LIST(userid,matching_userid,matching_score) values(?,?,?)";
+		public boolean FL_Insert(String ID,String M_ID){
+			String insql="insert into MATCHING_LIST(userid,matching_userid) values(?,?)";
 			if(!ID.equals(M_ID)){
 				try {
 					PreparedStatement ps=conn.prepareStatement(insql);
 					ps.setString(1, ID);
 					ps.setString(2, M_ID);
-					ps.setString(3, score);
 					int result=ps.executeUpdate();
 					ps.setString(2, ID);
 					ps.setString(1, M_ID);
-					ps.setString(3, score);
 					result=ps.executeUpdate();
 					if(result>0)
 						return true;
@@ -540,16 +686,15 @@ public class RDS_connection {
 				}
 			}
 			return false;
-
 		}
-		 
+
 
 
 		public boolean Update_TimeStamp(String ID,String time){
 			upsql="update DYNAMIC_TABLE set time_stamp=? where userid=?";
 			try {
 				PreparedStatement ps = conn.prepareStatement(upsql);
-//				ps.setString(10, ID);
+				//				ps.setString(10, ID);
 				ps.setString(1, time);
 				ps.setString(2, ID);
 				int result=ps.executeUpdate();
@@ -561,7 +706,7 @@ public class RDS_connection {
 			return false;
 		}
 
-		
+
 		//this is to retrieve the device token from REGISTER table by ID
 		public String Read_devicetoken(String ID){
 			String select="SELECT * FROM REGISTER where userid=?";
@@ -578,9 +723,9 @@ public class RDS_connection {
 				e.printStackTrace();
 			}
 			return status;
-			
+
 		}
-		
+
 		//update the device token by ID
 		public boolean Update_devicetoken(String ID, String devicetoken){
 			upsql="update REGISTER set device_token=? where userid=?";
@@ -596,7 +741,7 @@ public class RDS_connection {
 			}
 			return false;
 		}
-		
+
 		//this is to read facebook url from table REGISTER according to ID
 		public String Read_facebookURL(String ID){
 			String select="SELECT * FROM REGISTER where userid=?";
@@ -614,7 +759,113 @@ public class RDS_connection {
 			}
 			return url;
 		}
-		
+
+		//this to read personality from REGISTER
+		public String Read_personality(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String url="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					//get the device_token field
+					url=resultSet.getString("personality");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return url;
+		}
+		//this to update personality from REGISTER
+		public boolean Update_personality(String ID, String personality){
+			upsql="update REGISTER set personality=? where userid=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, personality);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+
+		}
+		//this to read I_option from REGISTER
+		public String Read_Ioption(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String url="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					//get the device_token field
+					url=resultSet.getString("i_option");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return url;
+
+
+		}
+		//this to update I_option from REGISTER
+		public boolean Update_Ioption(String ID, String I_option) {
+			upsql="update REGISTER set i_option=? where userid=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, I_option);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+
+
+
+		//this to read Q_option from REGISTER
+		public String Read_Qoption(String ID){
+			String select="SELECT * FROM REGISTER where userid=?";
+			String url="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				ps.setString(1, ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next() ){
+					//get the device_token field
+					url=resultSet.getString("q_option");
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return url;
+
+		}
+		//this to update I_option from REGISTER
+		public boolean Update_Qoption(String ID, String Q_option) {
+			upsql="update REGISTER set q_option=? where userid=?";
+			try {
+				PreparedStatement ps = conn.prepareStatement(upsql);
+				ps.setString(1, Q_option);
+				ps.setString(2, ID);
+				int result=ps.executeUpdate();
+				if(result>0)
+					return true;
+			} catch (SQLException ex) {
+				Logger.getLogger(RDS_connection.class.getName()).log(Level.SEVERE, null, ex);
+			}
+			return false;
+		}
+
+
+
 		//this is to get the matching mate list from the database
 		public String match_result(String UserID) throws SQLException{
 			PreparedStatement pstmt=null;
@@ -686,21 +937,127 @@ public class RDS_connection {
 
 		}
 
-		public void create_HearbeatTable(String Tablename)
-		{
 
+		public boolean Dynamic_create_table(String ID) throws SQLException{
+			String create_table="create table "+ID+"_last_denied"+" (mate_id varchar(45), last_denied varchar(45), primary key(mate_id))";
+			System.out.println(create_table);
+			System.out.println(statement);
+
+			statement.executeUpdate(create_table);
+			return false;
 		}
 
-		public void create_FriendlistTable(String Tablename)
-		{
-
+		public boolean Check_stamp(String ID, String mate_ID, long threhold){
+			String select="SELECT * FROM "+ID+"_last_denied"+" where mate_id=?";
+			String last_time="";
+			try {
+				PreparedStatement ps=conn.prepareStatement(select);
+				//				ps.setString(1, "599813130_last_denied");
+				ps.setString(1, mate_ID);
+				resultSet=ps.executeQuery();
+				if (resultSet.next()){
+					last_time=resultSet.getString("last_denied");
+					System.out.println(last_time);
+					long temp = Long.valueOf(last_time).longValue();
+					long current_time=System.currentTimeMillis();
+					System.out.println(temp);
+					System.out.println(Math.abs(temp-current_time));
+					if((temp-current_time)<threhold){
+						return false;
+					}
+				}
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+			return true;
 		}
 
-		public void create_GameStageTable(String Tablename)
-		{
 
+		public String strMatch(String s1, String s2){
+			String[] ss1=s1.split(",");
+			String[] ss2=s2.split(",");
+			String same="";
+			if(ss1.length==0){
+				return same;
+			}
+			else {
+				int num1=ss1.length;
+				int num2=ss2.length;
+				for (int i=0;i<num1;i++){
+					for (int j=0;j<num2;j++){
+						if (ss1[i].equals(ss2[j])){
+							same=same+ss1[i]+",";
+						}
+					}
+				}
+			}
+			return same;
+		}
+
+		public String match_interest(String[] user1, String[] user2){ // return the total matched interests
+			// 0 is musician, 1 is movie, 2 is teams, 3 is athlete
+			String result="";
+			if(strMatch(user1[0],user2[0]).length()>0){
+				result+=strMatch(user1[0],user2[0]);
+			}
+			if(strMatch(user1[1],user2[1]).length()>0){
+				result+=strMatch(user1[1],user2[1]);
+			}
+			if(strMatch(user1[2],user2[2]).length()>0){
+				result+=strMatch(user1[2],user2[2]);
+			}
+			if(strMatch(user1[3],user2[3]).length()>0){
+				result+=strMatch(user1[3],user2[3]);
+			}
+
+			
+			return result;
+		}
+
+
+
+		public String[] Prematch(String ID) throws SQLException{
+			ArrayList<String> result=new ArrayList<String>();
+			PreparedStatement pstmt=null;
+			ResultSet rs=null;
+			String[] id_interest=Get_MATM(ID);
+			result.add(ID+"&&"+"123&&"+Read_personality(ID));
+			//			System.out.println(id_interest[0]+id_interest[1]+id_interest[2]+id_interest[3]);
+			pstmt = conn.prepareStatement("SELECT * from REGISTER");
+			rs=pstmt.executeQuery();
+			while (rs.next()) {
+				String s=rs.getString("userid");
+				if(!s.equals(ID)){
+					String personality=Read_personality(s);
+					String[] interest=Get_MATM(s);
+					String common=match_interest(id_interest, interest);
+					common=common.substring(0,common.length()-1);
+					System.out.println("cooon is "+common);
+					
+					if(common.length()!=0){
+						result.add(s+"&&"+common+"&&"+personality);
+					}
+				}
+			}
+			if (pstmt != null) pstmt.close();
+			String[] re=new String[result.size()];
+			for(int i=0;i<result.size();i++){
+				re[i]=result.get(i);
+			}
+			return re;
 		}
 	}
+	//https://s3-us-west-2.amazonaws.com/liguifan-cloud-image/LIWC.txt
+	//https://s3-us-west-2.amazonaws.com/liguifan-cloud-image/big5.csv
+	//https://s3-us-west-2.amazonaws.com/liguifan-cloud-image/class1200.txt
+
+	public InputStream url2inputstream(String url1) throws IOException{
+		URL url = new URL(url1);
+		InputStream is = url.openStream();
+		return is;
+	}
+
+
 	public static void main(String args[]) throws SQLException{
 		RDS_connection cd=new RDS_connection();
 		user user1=cd.new user();
@@ -710,24 +1067,50 @@ public class RDS_connection {
 		//		user user2=cd.new user();
 		//				user1.setAge("12");
 		//		user1.UpdateUser("155", user2);
-		String m=user1.Get_Online("527167503");
-		String mm=user1.Get_Matching_FL("527167503");
-		
-//		user1.FL_Insert("527167503", "599813130", "55");
+		//		String m=user1.Get_Online("527167503");
+		//		String mm=user1.Get_Matching_FL("527167503");
+		//		
+		//		user1.FL_Insert("527167503", "599813130", "55");
 		//		user1.Updata_Online("599813130", "off");
 		//		user1.Updata_Stage("599813130", "mm:");
-		System.out.println(mm);
-//		user1.FL_Insert("8881", "9991");
+		//		System.out.println(mm);
+		//		user1.FL_Insert("8881", "9991");
 		//		user1.register_ID(user1);
+		//		
+		//		user1.Update_devicetoken("599813130", "dd3");
+		//		String mm1= user1.Read_devicetoken("599813130");
+		//		System.out.println(mm1);
+		String id="527167503";
+		//		String i=user1.Read_Ioption(id);
+		//		String p=user1.Read_personality(id);
+		//		String q=user1.Read_Qoption(id);
+		//		
+		//		
+		//		System.out.println(i+" "+p+" "+q);
+		//		user1.Update_personality(id, "adfatt");
+		//		user1.Update_Ioption(id, "mmm");
+		//		user1.Update_personality(id, "nininni");
+		//		i=user1.Read_Ioption(id);
+		//		p=user1.Read_personality(id);
+		//		q=user1.Read_Qoption(id);
+		//		System.out.println(i+" "+p+" "+q);599813130
+		//		user1.Dynamic_create_table("599813130");
+		System.out.println(System.currentTimeMillis());
+			//		}
 		
-		user1.Update_devicetoken("599813130", "dd3");
-		String mm1= user1.Read_devicetoken("599813130");
-		System.out.println(mm1);
-		cd.CutConnection(conn);
-		//user1.Get_DYtable("599813130");
-		//	         user1.DeletUser("155");
-		//	         cd.CutConnection(cd.conn);
+
+			//user1.Get_DYtable("599813130");
+			//	         user1.DeletUser("155");
+			//	         cd.CutConnection(
+			//		System.out.println(user1.Check_stamp("599813130", "222", 50000000));
+			//		System.out.println(System.currentTimeMillis());
+
+			cd.CutConnection();
+			//		1399245461947,1399245650369
+			
+			//1399253474782
+		}
 	}
-}
+
 
 

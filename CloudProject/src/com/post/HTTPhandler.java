@@ -254,17 +254,18 @@ public class HTTPhandler extends HttpServlet {
 			if(stage.equals("quit")){
 				temp.put("OK", "quit");
 				user_t.Updata_Stage(ID, "-1");
-			}else if(stage.equals("-1") || stage.equals("ready") || stage.equals("wait")){
+			}
+			
+			else if(stage.equals("-1") || stage.equals("ready") || stage.equals("wait")){
 				String mate_stage=user_t.Get_Status(mate);
-
 
 				if(stage.equals("ready") && mate_stage.equals("0") ){
 					System.out.println("in pregame model");
 					temp.put("OK", "enter");
 					user_t.Updata_Stage(ID, "0");
-				}else
-				{
-					temp.put("OK", "ID is "+ID+"stage is "+stage+"mate is"+mate+" mate stage is "+mate_stage);
+				}
+				else{
+					temp.put("OK", "nothing");
 				}
 			}else if(stage.equals("respond")){
 
@@ -273,7 +274,7 @@ public class HTTPhandler extends HttpServlet {
 				user_t.Updata_Stage(ID, "wait");
 				//mate=user_t.Get_Matching_FL(ID);
 				System.out.println("mate is respond"+mate);
-				temp.put("OK", mate);
+				temp.put("OK", "match");
 
 				String[] M1=user_t.Get_MATM(ID);
 				String[] M2=user_t.Get_MATM(mate);
@@ -290,12 +291,18 @@ public class HTTPhandler extends HttpServlet {
 					rate="eeeeeeeeee";
 				}
 				matchrequest.put("rate", rate);
+////////////////////////
+                // put blurred pic here into matchrequest
+                // put personality vector here
+////////////////////////////
+
+                
 				temp.put("matchrequest", matchrequest);
 				//temp.put("blurphoto", blurphoto);
 				//temp.put("piechart[]", piechart);
 			}
 			else if(stage.equals("wait")) {
-				temp.put("OK", "nothing+s2");
+				temp.put("OK", "wait");
 			}
 			//			else 
 			//			{
@@ -311,7 +318,6 @@ public class HTTPhandler extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		temp.put("OK", ID);
 		respon.put("respond", temp);
 		return respon;
 	}
@@ -332,40 +338,42 @@ public class HTTPhandler extends HttpServlet {
 		rds.createConnectionAndStatement();
 		user user_t=rds.new user();
 
-		//		if(!answer.equals("quit")){
-		//			String ID_matching=answer;
-		//			String[] M1=user_t.Get_MATM(ID);
-		//			String[] M2=user_t.Get_MATM(ID_matching);
-		//			common_interests=Interest.match_interest(M1,M2);
-		//			temp.put("commoninterest", "common_interests");
-		//		}else {
-		//
-		//		}
-
-		
-		
-
+	
 		String mate="";
 		stage=user_t.Get_Status(ID);
 		System.out.println("ID stage is "+stage+ID);
 		if(answer.equals("new")){// user request a new match
-			temp.put("OK", "inside whole:");
 			//call ML algorithm
 			System.out.println("answer is in"+ID);
 			mate= interest.ML_matching(ID);
+            
+////////////////////////////
+
+			temp.put("OK", "match");
+//            JSONObject matchrequest = new JSONObject();
+//            matchrequest.put("ID", mate);
+//            matchrequest.put("commoninterest", common_interests);
+//            matchrequest.put("pic", common_interests);
+//            matchrequest.put("piechart", common_interests);
+//            matchrequest.put("rate", common_interests);
+
+////////////////////////////
 
 			//we should get mathing score according to ID and mate.
 
 			String[] M1=user_t.Get_MATM(ID);
 			String[] M2=user_t.Get_MATM(mate);
 			common_interests=Interest.match_interest(M1,M2);
-			String score = ""+Interest.match_score(common_interests);
+//			String score = ""+Interest.match_score(common_interests);
+			String score="1341";
 			if(score.length()>0){
-				user_t.FL_Insert(ID, mate,score);}
+				user_t.FL_Insert(ID, mate, score);}
 			else{
 				user_t.FL_Insert(ID, mate,"0");
 			}
+			
 			if(stage.equals("-1")){
+				mate=user_t.Get_Matching_FL(ID);
 				System.out.println("answer new, ID status=-1");
 				user_t.Updata_Online(ID, "online");
 				user_t.Updata_Stage(ID, "wait");
@@ -390,12 +398,13 @@ public class HTTPhandler extends HttpServlet {
 				user_t.Updata_Stage(ID, "-1");
 				temp.put("OK", "quit");
 			}else if (stage.equals("wait")) {
-				temp.put("OK", "sdddd");
+				mate=user_t.Get_Matching_FL(ID);
+				temp.put("OK", "wait");
 				String mate_stage=user_t.Get_Status(mate);
 
 				if(!mate_stage.equals("ready")){
 					user_t.Updata_Stage(ID, "ready");
-					temp.put("OK", "mate 's status "+user_t.Get_Status(mate)+"mate is "+mate);
+					temp.put("OK", "wait");
 				}else{
 					System.out.println("enter mate_ready stage "+mate);
 					temp.put("OK", "enter");
@@ -413,13 +422,21 @@ public class HTTPhandler extends HttpServlet {
 		String ID = obj.getString("ID");
 		String command = obj.getString("command");
 		String detail = obj.getString("detail");
-
 		JSONObject respon = new JSONObject();
 		JSONObject temp = new JSONObject();
-		if(command.equals("submit")){  String answer = detail;}
-		else if(command.equals("start")){String matchID = detail;}
-		else if(command.equals("quit")){ }//quit
-		else {   }// nothing
+		if(command.equals("submit")){
+            
+            String answer = detail;}
+		else if(command.equals("start")){
+            
+            String matchID = detail;}
+		else if(command.equals("quit")){
+        
+        }//quit
+		else {// nothing
+        
+        
+        }
 		temp.put("stage", "2");
 		temp.put("status", "continue");
 		respon.put("respond", temp);

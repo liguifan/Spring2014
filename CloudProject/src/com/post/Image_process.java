@@ -4,18 +4,11 @@ import gaussian.blur.GaussianFilter;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.net.URL;
-import java.util.ArrayList;
-
 import javax.imageio.ImageIO;
-
 import org.apache.commons.io.IOUtils;
-
 import com.amazonaws.AmazonClientException;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.auth.ClasspathPropertiesFileCredentialsProvider;
@@ -25,9 +18,6 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 
 public class Image_process {
-
-
-
 	public static void main(String[] args) throws Exception {
 		String imageUrl = "https://s3.amazonaws.com/elasticbeanstalk-us-east-1-310698506257/10c1040.jpg";
 		String destinationFile = "/Users/liguifan/Desktop/mmm.jpg";
